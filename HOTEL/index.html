@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hon. Ebenezer Atta Marfo Hotel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1a6b4a;--gl:#2a8a5f;--gd:#114232;--cream:#f9f5ef;--red:#dc2626;--rl:#fee2e2;--orange:#ea580c;--navy:#1e293b;--white:#fff;--text:#1a1a1a;--muted:#6b7280;--border:#e5e7eb;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+.hdr{background:#fff;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.08);position:sticky;top:0;z-index:100;}
+.hlogo{display:flex;align-items:center;gap:10px;}
+.hicon{width:44px;height:44px;background:var(--green);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:21px;cursor:pointer;user-select:none;-webkit-user-select:none;transition:transform .15s;}
+.hicon:active{transform:scale(.92);}
+.hname{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--green);line-height:1.2;}
+.hloc{font-size:10px;color:var(--muted);margin-top:2px;}
+.btn-book{background:var(--green);color:#fff;border:none;padding:9px 16px;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:background .2s;}
+.btn-book:hover{background:var(--gl);}
+.view{display:none;}.view.active{display:block;}
+.hero{position:relative;height:210px;background:linear-gradient(135deg,var(--gd) 0%,var(--green) 55%,#3aaa78 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");}
+.hero-inner{position:relative;text-align:center;color:#fff;padding:0 20px;}
+.hero-inner h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;margin-bottom:6px;text-shadow:0 2px 8px rgba(0,0,0,.2);}
+.hero-inner p{font-size:12px;opacity:.85;margin-bottom:14px;}
+.wa-hero{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 20px;border-radius:30px;text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:700;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.25);}
+.sec{padding:24px 16px;}
+.sec-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;text-align:center;margin-bottom:4px;}
+.sec-sub{text-align:center;color:var(--muted);font-size:12px;margin-bottom:20px;}
+.filters{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:20px;}
+.fbtn{padding:8px 15px;border-radius:50px;border:2px solid var(--green);background:transparent;color:var(--green);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;}
+.fbtn.active,.fbtn:hover{background:var(--green);color:#fff;}
+.rgrid{display:grid;gap:12px;}
+.rcard{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s;position:relative;}
+.rcard:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.12);}
+.rcard.unavail{opacity:.65;}
+.rimg{height:120px;display:flex;align-items:center;justify-content:center;font-size:42px;position:relative;}
+.rimg.std{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);}
+.rimg.dlx{background:linear-gradient(135deg,#e3f2fd,#bbdefb);}
+.rimg.exc{background:linear-gradient(135deg,#fff8e1,#ffe082);}
+.sold-badge{position:absolute;top:8px;right:8px;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;}
+.avail-badge{position:absolute;top:8px;right:8px;background:var(--green);color:#fff;font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;}
+.rinfo{padding:12px;}
+.rtype{font-weight:700;font-size:14px;margin-bottom:2px;}
+.rprice{color:var(--green);font-weight:700;font-size:16px;font-family:'Playfair Display',serif;}
+.rprice span{font-size:11px;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400;}
+.ramen{display:flex;gap:5px;flex-wrap:wrap;margin:7px 0;}
+.amen{font-size:10px;background:var(--cream);padding:3px 8px;border-radius:20px;color:var(--muted);}
+.rcnt{font-size:11px;color:var(--muted);margin-top:2px;}
+.rcnt.low{color:var(--orange);font-weight:600;}.rcnt.full{color:var(--red);font-weight:600;}
+.btn-sel{width:100%;padding:10px;background:var(--green);color:#fff;border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:12px;cursor:pointer;transition:background .2s;margin-top:5px;}
+.btn-sel:hover{background:var(--gl);}.btn-sel:disabled{background:#9ca3af;cursor:not-allowed;}
+#bsec{display:none;padding:0 16px 40px;}
+.fcard{background:var(--green);border-radius:20px;padding:22px 18px;color:#fff;}
+.ftitle{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;margin-bottom:18px;text-align:center;}
+.fg{margin-bottom:14px;}
+.fl{font-size:11px;font-weight:500;margin-bottom:6px;display:block;opacity:.9;}
+.fc{width:100%;padding:11px 13px;background:rgba(255,255,255,.95);border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;transition:box-shadow .2s;}
+.fc:focus{box-shadow:0 0 0 3px rgba(255,255,255,.4);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.psumm{background:rgba(0,0,0,.2);border-radius:10px;padding:12px 14px;margin:14px 0;}
+.prow{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;}
+.prow.tot{font-weight:700;font-size:13px;border-top:1px solid rgba(255,255,255,.3);padding-top:8px;margin-top:3px;}
+.btn-sub{width:100%;padding:14px;background:#fff;color:var(--green);border:none;border-radius:12px;font-family:'Playfair Display',serif;font-weight:700;font-size:14px;cursor:pointer;letter-spacing:.5px;text-transform:uppercase;transition:all .2s;}
+.btn-sub:hover{background:var(--cream);}
+.awrap{max-width:340px;margin:50px auto;background:#fff;border-radius:18px;padding:26px 20px;box-shadow:0 8px 30px rgba(0,0,0,.1);text-align:center;}
+.aicon{font-size:36px;margin-bottom:9px;}
+.awrap h2{font-family:'Playfair Display',serif;font-size:19px;margin-bottom:3px;}
+.awrap p{color:var(--muted);font-size:11px;margin-bottom:18px;}
+.af{margin-bottom:12px;text-align:left;}
+.af label{font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;}
+.ai{width:100%;padding:10px 12px;border:2px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border .2s;}
+.ai:focus{border-color:var(--green);}
+.abtn{width:100%;padding:11px;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:background .2s;color:#fff;}
+.abtn.nv{background:var(--navy);}.abtn.nv:hover{background:#334155;}
+.abtn.gn{background:var(--green);}.abtn.gn:hover{background:var(--gl);}
+.aerr{color:var(--red);font-size:11px;margin-top:7px;padding:7px 11px;background:var(--rl);border-radius:7px;display:none;}
+.asuc{color:#166534;font-size:11px;margin-top:7px;padding:7px 11px;background:#dcfce7;border-radius:7px;display:none;}
+.aswitch{margin-top:14px;font-size:12px;color:var(--muted);}
+.aswitch a{color:var(--green);font-weight:600;cursor:pointer;}
+.role-sel{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px;}
+.ropt{border:2px solid var(--border);border-radius:9px;padding:9px 6px;text-align:center;cursor:pointer;transition:all .2s;font-size:11px;font-weight:600;color:var(--muted);}
+.ropt.sel{border-color:var(--green);background:#f0fdf4;color:var(--green);}
+.ropt .ri{font-size:18px;display:block;margin-bottom:3px;}
+.apanel{padding:20px 16px 60px;}
+.atop{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.atitle{font-family:'Playfair Display',serif;font-size:19px;font-weight:900;}
+.asub{font-size:11px;color:var(--muted);margin-top:2px;}
+.avatar{width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;}
+.btn-out{background:none;border:2px solid var(--border);padding:6px 11px;border-radius:7px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;}
+.btn-out:hover{background:var(--red);color:#fff;border-color:var(--red);}
+.tabs{display:flex;background:#fff;border-radius:11px;padding:3px;box-shadow:0 2px 8px rgba(0,0,0,.07);margin-bottom:18px;overflow-x:auto;gap:2px;}
+.tbtn{flex:1;padding:8px 5px;border:none;background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;cursor:pointer;border-radius:8px;transition:all .2s;white-space:nowrap;color:var(--muted);}
+.tbtn.active{background:var(--navy);color:#fff;}
+.tcnt{display:none;}.tcnt.active{display:block;}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:16px;}
+.scard{background:#fff;border-radius:12px;padding:13px;box-shadow:0 2px 10px rgba(0,0,0,.06);text-align:center;}
+.snum{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--green);}
+.slbl{font-size:10px;color:var(--muted);margin-top:2px;}
+.rmcard{background:#fff;border-radius:12px;padding:13px;margin-bottom:10px;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+.rmhdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
+.rmname{font-weight:700;font-size:13px;}.rmprice{color:var(--green);font-weight:600;font-size:12px;}
+.trow{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.tlbl{font-size:12px;color:var(--muted);}
+.toggle{position:relative;display:inline-block;width:40px;height:22px;}
+.toggle input{opacity:0;width:0;height:0;}
+.slider{position:absolute;cursor:pointer;inset:0;background:#ccc;border-radius:22px;transition:.3s;}
+.slider:before{position:absolute;content:"";height:16px;width:16px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s;}
+input:checked+.slider{background:var(--green);}input:checked+.slider:before{transform:translateX(18px);}
+.crow{display:flex;align-items:center;gap:8px;}
+.clbl{font-size:11px;color:var(--muted);flex:1;}
+.cctrl{display:flex;align-items:center;gap:6px;}
+.cbtn{width:27px;height:27px;border-radius:7px;border:none;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.cbtn.m{background:#fee2e2;color:var(--red);}.cbtn.m:hover{background:var(--red);color:#fff;}
+.cbtn.p{background:#dcfce7;color:var(--green);}.cbtn.p:hover{background:var(--green);color:#fff;}
+.cnum{font-weight:700;font-size:14px;min-width:24px;text-align:center;}
+.blist{display:grid;gap:8px;}
+.bitem{background:#fff;border-radius:11px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);border-left:4px solid var(--green);}
+.bitem.cancelled{border-left-color:var(--red);opacity:.65;}
+.bitem.payment_sent{border-left-color:#1d4ed8;}
+.bitem.payment_received{border-left-color:#059669;}
+.btop{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;}
+.bname{font-weight:700;font-size:13px;}
+.bstatus{font-size:9px;font-weight:700;padding:3px 8px;border-radius:20px;letter-spacing:.5px;}
+.bstatus.confirmed{background:#dcfce7;color:#166534;}
+.bstatus.pending{background:#fef9c3;color:#854d0e;}
+.bstatus.payment_sent{background:#dbeafe;color:#1e40af;}
+.bstatus.payment_received{background:#d1fae5;color:#065f46;}
+.bstatus.cancelled{background:#fee2e2;color:var(--red);}
+.bdet{font-size:11px;color:var(--muted);line-height:1.6;}
+.bref{font-size:10px;color:var(--muted);margin-top:3px;font-weight:600;}
+.bacts{display:flex;gap:6px;margin-top:8px;}
+.abtn2{flex:1;padding:7px;border:none;border-radius:7px;font-size:10px;font-weight:700;cursor:pointer;transition:all .2s;}
+.abtn2.ok{background:#dcfce7;color:#166534;}.abtn2.ok:hover{background:var(--green);color:#fff;}
+.abtn2.ng{background:#fee2e2;color:var(--red);}.abtn2.ng:hover{background:var(--red);color:#fff;}
+.anotice{border-radius:9px;padding:9px 11px;margin-top:9px;font-size:11px;font-weight:600;margin-bottom:7px;}
+.anotice.blue{background:#dbeafe;color:#1e40af;}
+.anotice.grn{background:#d1fae5;color:#065f46;}
+.empty-box{text-align:center;padding:28px;color:var(--muted);font-size:13px;}
+.achdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.actitle{font-weight:700;font-size:13px;}
+.btn-addac{background:var(--green);color:#fff;border:none;padding:7px 13px;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:11px;cursor:pointer;}
+.aclist{display:grid;gap:8px;}
+.accard{background:#fff;border-radius:11px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);display:flex;align-items:center;gap:10px;}
+.acav{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0;}
+.acinfo{flex:1;}
+.acname{font-weight:700;font-size:13px;}
+.acuser{font-size:11px;color:var(--muted);}
+.acrbdg{font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;margin-top:2px;display:inline-block;}
+.acrbdg.superadmin{background:#fef9c3;color:#854d0e;}
+.acrbdg.admin{background:#dcfce7;color:#166534;}
+.acrbdg.staff{background:#dbeafe;color:#1e40af;}
+.acacts{display:flex;gap:5px;}
+.acbtn{border:none;padding:5px 9px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;transition:all .2s;}
+.acbtn.edit{background:#f3f4f6;color:var(--text);}.acbtn.edit:hover{background:var(--navy);color:#fff;}
+.acbtn.del{background:#fee2e2;color:var(--red);}.acbtn.del:hover{background:var(--red);color:#fff;}
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;align-items:center;justify-content:center;padding:18px;}
+.modal-ov.show{display:flex;animation:fi .3s ease;}
+.modal{background:#fff;border-radius:16px;padding:22px 18px;width:100%;max-width:360px;max-height:90vh;overflow-y:auto;}
+.mtitle{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;margin-bottom:16px;text-align:center;}
+.mf{margin-bottom:12px;}
+.mf label{font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;}
+.mi{width:100%;padding:10px 12px;border:2px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border .2s;}
+.mi:focus{border-color:var(--green);}
+.merr{color:var(--red);font-size:11px;margin-bottom:9px;padding:7px 11px;background:var(--rl);border-radius:7px;display:none;}
+.mbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;}
+.mbtn{padding:10px;border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:12px;cursor:pointer;transition:all .2s;}
+.mbtn.ok{background:var(--green);color:#fff;}.mbtn.ok:hover{background:var(--gl);}
+.mbtn.cl{background:#f3f4f6;color:var(--text);}
+.rchips{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:3px;}
+.rchip{border:2px solid var(--border);border-radius:8px;padding:7px 4px;text-align:center;cursor:pointer;transition:all .2s;font-size:10px;font-weight:600;color:var(--muted);}
+.rchip.sel{border-color:var(--green);background:#f0fdf4;color:var(--green);}
+.rchip .rci{font-size:17px;display:block;margin-bottom:2px;}
+.noav-ov{display:none;position:fixed;inset:0;background:rgba(220,38,38,.96);z-index:200;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:36px;color:#fff;}
+.noav-ov.show{display:flex;animation:fi .4s ease;}
+#waFloat{position:fixed;bottom:22px;right:18px;z-index:90;display:flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 16px;border-radius:50px;text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:700;font-size:12px;box-shadow:0 6px 20px rgba(37,211,102,.45);}
+@keyframes fi{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+
+/* ═══ MOMO STYLE PROMPT ═══ */
+.momo-ov{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.7);align-items:flex-end;justify-content:center;padding-bottom:0;}
+@keyframes slideUp{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
+.momo-sheet{width:100%;max-width:420px;border-radius:24px 24px 0 0;padding:0 0 40px;overflow:hidden;position:relative;background:#fff;}
+.momo-header{padding:18px 20px 14px;text-align:center;position:relative;}
+.momo-pill{width:40px;height:4px;border-radius:4px;background:rgba(255,255,255,.35);margin:0 auto 14px;}
+.momo-net-icon{font-size:40px;margin-bottom:6px;}
+.momo-net-name{font-size:17px;font-weight:800;color:#fff;margin-bottom:2px;}
+.momo-net-sub{font-size:11px;color:rgba(255,255,255,.75);}
+.momo-body{background:#fff;border-radius:0;padding:22px 20px 10px;}
+.momo-field{margin-bottom:16px;}
+.momo-field label{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.8px;display:block;margin-bottom:5px;text-transform:uppercase;}
+.momo-display{background:#f8fafc;border:2px solid var(--border);border-radius:11px;padding:12px 15px;font-size:15px;font-weight:700;color:var(--text);display:flex;align-items:center;justify-content:space-between;}
+.momo-display.editable{cursor:pointer;}
+.momo-lock{font-size:14px;color:var(--muted);}
+.momo-amount-input{width:100%;background:#f0fdf4;border:2px solid var(--green);border-radius:11px;padding:13px 15px;font-family:'DM Sans',sans-serif;font-size:20px;font-weight:800;color:var(--green);outline:none;text-align:center;letter-spacing:1px;}
+.momo-amount-input::placeholder{color:#9ca3af;font-size:16px;font-weight:400;}
+.momo-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 6px;}
+.momo-key{background:#f8fafc;border:none;border-radius:12px;padding:14px 8px;font-family:'DM Sans',sans-serif;font-size:17px;font-weight:700;cursor:pointer;transition:all .15s;color:var(--text);}
+.momo-key:active,.momo-key:hover{background:#e8f5e9;color:var(--green);}
+.momo-key.del{background:#fee2e2;color:var(--red);}
+.momo-key.del:active,.momo-key.del:hover{background:var(--red);color:#fff;}
+.momo-pin-row{display:flex;gap:10px;justify-content:center;margin:14px 0 6px;}
+.momo-pin-dot{width:44px;height:44px;border-radius:50%;background:#f8fafc;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:var(--green);transition:all .2s;}
+.momo-pin-dot.filled{background:var(--green);border-color:var(--green);color:#fff;}
+.momo-divider{height:1px;background:var(--border);margin:10px -20px;}
+.momo-total-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0 4px;}
+.momo-total-lbl{font-size:12px;color:var(--muted);}
+.momo-total-val{font-size:18px;font-weight:900;color:var(--text);}
+.momo-action{padding:0 20px 0;}
+.momo-pay-btn{width:100%;padding:15px;border:none;border-radius:14px;font-family:'DM Sans',sans-serif;font-weight:800;font-size:15px;cursor:pointer;transition:all .2s;margin-top:6px;background:var(--green);color:#fff;}
+.momo-pay-btn:hover{background:var(--gl);}
+.momo-pay-btn:disabled{background:#9ca3af;cursor:not-allowed;}
+.momo-cancel{width:100%;padding:11px;border:none;background:none;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer;color:var(--muted);margin-top:4px;}
+
+/* Cash/Card special styles */
+.momo-info-card{background:#f8fafc;border-radius:13px;padding:16px 15px;margin:4px 0 14px;text-align:center;}
+.momo-info-icon{font-size:38px;margin-bottom:8px;}
+.momo-info-title{font-size:14px;font-weight:800;color:var(--text);margin-bottom:4px;}
+.momo-info-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+.momo-wa-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 20px;border-radius:12px;text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;margin:10px 0 4px;width:100%;justify-content:center;}
+
+/* Processing overlay */
+.momo-processing{display:none;position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.85);align-items:center;justify-content:center;flex-direction:column;color:#fff;text-align:center;}
+.momo-processing.show{display:flex;animation:fi .3s ease;}
+.momo-spinner{width:56px;height:56px;border:5px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:16px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Step 3 waiting */
+.pay-done-ov{display:none;position:fixed;inset:0;background:linear-gradient(160deg,#114232,#1a6b4a);z-index:200;overflow-y:auto;font-family:'DM Sans',sans-serif;}
+.pay-done-ov.show{display:block;animation:fi .4s ease;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hlogo">
+    <div class="hicon" id="logoIcon" onclick="handleLogoTap()">🏨</div>
+    <div>
+      <div class="hname">Hon. Ebenezer Atta Marfo Hotel</div>
+      <div class="hloc">Akyem Apedwa · Eastern Region, Ghana</div>
+    </div>
+  </div>
+  <button class="btn-book" onclick="scrollToBook()">📅 BOOK NOW</button>
+</div>
+
+<!-- GUEST VIEW -->
+<div id="guestView" class="view active">
+  <div class="hero">
+    <div class="hero-inner">
+      <h2>Reserve Your Room Now</h2>
+      <p>Comfort &amp; Hospitality in the Heart of Akyem Apedwa · Open 24 Hours 🌙☀️</p>
+      <a class="wa-hero" href="https://wa.me/233555091915" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="white"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.809A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.95 9.95 0 01-5.065-1.375l-.363-.215-4.57 1.073 1.11-4.447-.237-.376A9.951 9.951 0 016 15c0-5.523 4.477-10 10-10zm-3.172 5.5c-.2 0-.524.075-.8.375C11.75 11.175 11 12.05 11 13.838c0 1.787 1.056 3.512 1.206 3.762.15.25 2.069 3.237 5.088 4.413 2.525.987 3.038.79 3.588.74.55-.05 1.775-.725 2.025-1.425.25-.7.25-1.3.175-1.425-.075-.125-.275-.2-.575-.35-.3-.15-1.775-.875-2.05-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-.3-.15-1.265-.466-2.41-1.485-.89-.793-1.49-1.772-1.665-2.072-.175-.3-.018-.462.132-.612.134-.134.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.663-1.637-.925-2.237-.238-.575-.488-.5-.675-.51-.175-.008-.375-.01-.575-.01z"/></svg>
+        Chat Us on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2 class="sec-title">Our Rooms</h2>
+    <p class="sec-sub">Choose your preferred room type below</p>
+    <div class="filters">
+      <button class="fbtn active" onclick="filterRooms('all',this)">All Rooms</button>
+      <button class="fbtn" onclick="filterRooms('standard',this)">Standard (GH₵200)</button>
+      <button class="fbtn" onclick="filterRooms('deluxe',this)">Deluxe (GH₵300)</button>
+      <button class="fbtn" onclick="filterRooms('executive',this)">Executive (GH₵400)</button>
+    </div>
+    <div class="rgrid" id="roomsGrid"></div>
+  </div>
+
+  <div id="bsec">
+    <div class="fcard">
+      <div class="ftitle">📅 Complete Your Booking</div>
+      <div class="fg">
+        <label class="fl">Check-in — Date &amp; Time</label>
+        <div class="frow">
+          <input type="date" class="fc" id="checkinDate" onchange="calcTotal()">
+          <input type="time" class="fc" id="checkinTime" value="14:00" onchange="calcTotal()">
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">Check-out — Date &amp; Time</label>
+        <div class="frow">
+          <input type="date" class="fc" id="checkoutDate" onchange="calcTotal()">
+          <input type="time" class="fc" id="checkoutTime" value="12:00" onchange="calcTotal()">
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.12);border-radius:9px;padding:8px 12px;font-size:11px;margin-bottom:13px;display:flex;align-items:center;gap:6px;">
+        🌙☀️ <span>We are open <b>24 hours</b> — check in or out any time!</span>
+      </div>
+      <div class="fg">
+        <label class="fl">Room Type</label>
+        <select class="fc" id="roomType" onchange="calcTotal()">
+          <option value="200">Standard Room — GH₵200/night</option>
+          <option value="300">Deluxe Room — GH₵300/night</option>
+          <option value="400">Executive Room — GH₵400/night</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="fl">Number of Guests</label>
+        <select class="fc" id="guests">
+          <option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Full Name</label><input type="text" class="fc" id="fullName" placeholder="Your full name"></div>
+      <div class="fg"><label class="fl">Phone / WhatsApp</label><input type="tel" class="fc" id="phone" placeholder="+233 XX XXX XXXX"></div>
+      <div class="fg"><label class="fl">Email</label><input type="email" class="fc" id="guestEmail" placeholder="your@email.com"></div>
+      <div style="border-top:1px solid rgba(255,255,255,.22);margin:8px 0 18px;"></div>
+      <div style="background:rgba(0,0,0,.15);border-radius:13px;padding:16px 14px;margin-bottom:4px;">
+        <div style="font-size:13px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+          <span style="font-size:20px;">🧑‍🤝‍🧑</span><span>Next of Kin Details</span>
+          <span style="font-size:10px;background:rgba(255,255,255,.2);padding:2px 8px;border-radius:20px;font-weight:600;margin-left:auto;">Required</span>
+        </div>
+        <div style="font-size:11px;opacity:.8;margin-bottom:14px;line-height:1.5;">⚠️ We require emergency contact details for all guests for safety purposes.</div>
+        <div class="fg"><label class="fl">Full Name of Next of Kin</label><input type="text" class="fc" id="nokName" placeholder="e.g. Ama Mensah (spouse/parent/sibling)"></div>
+        <div class="fg"><label class="fl">Next of Kin Phone / WhatsApp</label><input type="tel" class="fc" id="nokPhone" placeholder="+233 XX XXX XXXX"></div>
+        <div class="fg">
+          <label class="fl">Relationship to Guest</label>
+          <select class="fc" id="nokRelation">
+            <option value="">— Select relationship —</option>
+            <option>Spouse / Partner</option><option>Father</option><option>Mother</option><option>Son</option>
+            <option>Daughter</option><option>Brother</option><option>Sister</option><option>Uncle</option>
+            <option>Aunt</option><option>Friend</option><option>Colleague</option><option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Next of Kin Address / Location</label><input type="text" class="fc" id="nokAddress" placeholder="e.g. Kumasi, Ashanti Region"></div>
+      </div>
+      <div class="fg"><label class="fl">📍 Travelling From (City / Town / Country)</label><input type="text" class="fc" id="travelFrom" placeholder="e.g. Accra, Ghana"></div>
+      <div style="border-top:1px solid rgba(255,255,255,.22);margin:4px 0 14px;"></div>
+      <div class="psumm">
+        <div class="prow"><span>Room rate</span><span id="roomRate">GH₵200/night</span></div>
+        <div class="prow"><span>Stay duration</span><span id="nightsCount">—</span></div>
+        <div class="prow tot"><span>Estimated Total</span><span id="totalPrice">—</span></div>
+      </div>
+      <div style="background:rgba(0,0,0,.17);border-radius:10px;padding:11px 13px;font-size:11px;line-height:1.8;margin-bottom:14px;">
+        <b>📋 How it works:</b><br>
+        1️⃣ Submit booking &nbsp;→&nbsp; 2️⃣ Choose &amp; complete payment &nbsp;→&nbsp; 3️⃣ Admin confirms payment &nbsp;→&nbsp; 4️⃣ Receive reference code 🎉
+      </div>
+      <button class="btn-sub" onclick="submitBooking()">SUBMIT BOOKING REQUEST</button>
+    </div>
+  </div>
+
+  <a id="waFloat" href="https://wa.me/233555091915" target="_blank">
+    <svg width="20" height="20" viewBox="0 0 32 32" fill="white"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.809A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.95 9.95 0 01-5.065-1.375l-.363-.215-4.57 1.073 1.11-4.447-.237-.376A9.951 9.951 0 016 15c0-5.523 4.477-10 10-10zm-3.172 5.5c-.2 0-.524.075-.8.375C11.75 11.175 11 12.05 11 13.838c0 1.787 1.056 3.512 1.206 3.762.15.25 2.069 3.237 5.088 4.413 2.525.987 3.038.79 3.588.74.55-.05 1.775-.725 2.025-1.425.25-.7.25-1.3.175-1.425-.075-.125-.275-.2-.575-.35-.3-.15-1.775-.875-2.05-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-.3-.15-1.265-.466-2.41-1.485-.89-.793-1.49-1.772-1.665-2.072-.175-.3-.018-.462.132-.612.134-.134.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.663-1.637-.925-2.237-.238-.575-.488-.5-.675-.51-.175-.008-.375-.01-.575-.01z"/></svg>
+    WhatsApp Us
+  </a>
+</div>
+
+<!-- DECOY SCREEN (shown on triple-tap — looks like a dead end) -->
+<div id="decoyView" class="view">
+  <div style="min-height:100vh;background:#f1f5f9;display:flex;align-items:center;justify-content:center;padding:24px;">
+    <div style="max-width:340px;width:100%;text-align:center;">
+      <div style="font-size:52px;margin-bottom:14px;">🔧</div>
+      <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:#1e293b;margin-bottom:8px;">System Maintenance</div>
+      <div style="font-size:13px;color:#64748b;line-height:1.7;margin-bottom:22px;">
+        This portal is currently undergoing scheduled maintenance.<br>Please check back later or contact support.
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:14px 16px;border:1px solid #e2e8f0;font-size:12px;color:#94a3b8;margin-bottom:20px;">
+        Error code: <b>503</b> · Service Temporarily Unavailable
+      </div>
+      <!-- Hidden trigger: tap this 5 times to reach real login -->
+      <div id="decoyTrigger" onclick="handleDecoyTap()" style="color:#cbd5e1;font-size:11px;cursor:default;user-select:none;-webkit-user-select:none;margin-bottom:16px;">
+        maintenance@heamhotel.gh
+      </div>
+      <button onclick="showView('guestView')" style="background:#1e293b;color:#fff;border:none;padding:11px 28px;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer;">← Back to Website</button>
+    </div>
+  </div>
+</div>
+
+<!-- REAL LOGIN VIEW (generic — no "admin" label visible) -->
+<div id="loginView" class="view">
+  <div style="min-height:100vh;background:#f1f5f9;display:flex;align-items:center;justify-content:center;padding:24px;">
+    <div style="max-width:340px;width:100%;background:#fff;border-radius:18px;padding:28px 22px;box-shadow:0 4px 24px rgba(0,0,0,.09);">
+      <!-- Subtle hotel logo — no "admin" wording -->
+      <div style="text-align:center;margin-bottom:22px;">
+        <div style="width:48px;height:48px;background:var(--green);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 10px;">🏨</div>
+        <div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--green);">Staff Portal</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">Hon. Ebenezer Atta Marfo Hotel</div>
+      </div>
+      <div class="af"><label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;">Username</label><input class="ai" id="loginUser" placeholder="Username" autocomplete="off" spellcheck="false"></div>
+      <div class="af"><label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;">Password</label>
+        <div style="position:relative;">
+          <input class="ai" type="password" id="loginPass" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()" style="padding-right:40px;">
+          <span onclick="togglePassVis('loginPass',this)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:16px;color:var(--muted);user-select:none;">👁️</span>
+        </div>
+      </div>
+      <div class="aerr" id="loginErr"></div>
+      <!-- Attempt counter (hidden by default, shown after 1st failure) -->
+      <div id="loginAttemptBar" style="display:none;height:4px;background:#fee2e2;border-radius:4px;margin-bottom:10px;overflow:hidden;">
+        <div id="loginAttemptFill" style="height:100%;background:#dc2626;border-radius:4px;transition:width .3s;width:0%;"></div>
+      </div>
+      <button class="abtn nv" id="loginBtn" onclick="doLogin()" style="margin-top:4px;">Sign In</button>
+      <div style="text-align:center;margin-top:14px;display:flex;justify-content:space-between;align-items:center;">
+        <a onclick="showView('guestView')" style="font-size:11px;color:var(--muted);cursor:pointer;text-decoration:none;">← Hotel website</a>
+        <a onclick="showView('registerView')" style="font-size:11px;color:var(--green);font-weight:700;cursor:pointer;text-decoration:none;">Create account →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER VIEW — no public link; only reachable from superadmin dashboard -->
+<div id="registerView" class="view">
+  <div style="min-height:100vh;background:#f1f5f9;display:flex;align-items:center;justify-content:center;padding:24px;">
+    <div style="max-width:380px;width:100%;background:#fff;border-radius:18px;padding:28px 22px;box-shadow:0 4px 24px rgba(0,0,0,.09);">
+
+      <!-- Header -->
+      <div style="text-align:center;margin-bottom:22px;">
+        <div style="width:52px;height:52px;background:var(--green);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 10px;">🏨</div>
+        <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:var(--green);">Create Your Account</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:3px;">Hon. Ebenezer Atta Marfo Hotel Staff Portal</div>
+      </div>
+
+      <!-- Profile photo picker -->
+      <div style="text-align:center;margin-bottom:18px;">
+        <div style="position:relative;display:inline-block;">
+          <div id="regAvatarPreview" onclick="document.getElementById('regAvatarInput').click()"
+            style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--green),#2a8a5f);display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;border:3px solid #e5e7eb;overflow:hidden;margin:0 auto;">
+            👤
+          </div>
+          <div onclick="document.getElementById('regAvatarInput').click()"
+            style="position:absolute;bottom:0;right:0;width:24px;height:24px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer;border:2px solid #fff;">
+            📷
+          </div>
+        </div>
+        <input type="file" id="regAvatarInput" accept="image/*" style="display:none;" onchange="previewRegAvatar(this)">
+        <div style="font-size:10px;color:var(--muted);margin-top:6px;">Tap to add profile photo</div>
+      </div>
+
+      <!-- Form fields -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+        <div class="af" style="margin-bottom:0;">
+          <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;">First Name</label>
+          <input class="ai" id="regFirstName" placeholder="e.g. Kofi">
+        </div>
+        <div class="af" style="margin-bottom:0;">
+          <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;">Last Name</label>
+          <input class="ai" id="regLastName" placeholder="e.g. Mensah">
+        </div>
+      </div>
+
+      <div class="af">
+        <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;">Username</label>
+        <input class="ai" id="regUser" placeholder="Choose a unique username" autocomplete="off" spellcheck="false">
+      </div>
+
+      <div class="af">
+        <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;">Phone / WhatsApp</label>
+        <input class="ai" id="regPhone" type="tel" placeholder="+233 XX XXX XXXX">
+      </div>
+
+      <div class="af">
+        <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;">Email Address</label>
+        <input class="ai" id="regEmail" type="email" placeholder="yourname@email.com">
+      </div>
+
+      <div class="af">
+        <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;">Password</label>
+        <div style="position:relative;">
+          <input class="ai" type="password" id="regPass" placeholder="Min. 6 characters" style="padding-right:40px;">
+          <span onclick="togglePassVis('regPass',this)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:16px;color:var(--muted);user-select:none;">👁️</span>
+        </div>
+      </div>
+
+      <div class="af">
+        <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px;">Confirm Password</label>
+        <div style="position:relative;">
+          <input class="ai" type="password" id="regPass2" placeholder="Re-enter password" style="padding-right:40px;">
+          <span onclick="togglePassVis('regPass2',this)" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:16px;color:var(--muted);user-select:none;">👁️</span>
+        </div>
+      </div>
+
+      <!-- Role selection -->
+      <div class="af">
+        <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:8px;">I am a…</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div class="ropt sel" onclick="selectRegRole(this,'admin')" data-role="admin"
+            style="border-radius:11px;padding:12px 8px;">
+            <span class="ri" style="font-size:22px;">🛡️</span>
+            <div style="font-size:12px;font-weight:700;margin-top:4px;">Admin</div>
+            <div style="font-size:9px;color:var(--muted);margin-top:2px;">Full access</div>
+          </div>
+          <div class="ropt" onclick="selectRegRole(this,'staff')" data-role="staff"
+            style="border-radius:11px;padding:12px 8px;">
+            <span class="ri" style="font-size:22px;">👤</span>
+            <div style="font-size:12px;font-weight:700;margin-top:4px;">Staff</div>
+            <div style="font-size:9px;color:var(--muted);margin-top:2px;">Limited access</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="aerr" id="regErr"></div>
+      <div class="asuc" id="regSuc"></div>
+
+      <button class="abtn gn" onclick="doRegister()" style="margin-top:6px;">🚀 Create My Account</button>
+
+      <div style="text-align:center;margin-top:14px;">
+        <a onclick="showView('loginView')" style="font-size:11px;color:var(--muted);cursor:pointer;">Already have an account? Sign in →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div id="adminView" class="view">
+  <div class="apanel">
+    <!-- Session warning bar -->
+    <div id="sessionWarn" style="display:none;background:#fef9c3;color:#854d0e;border:1px solid #fde047;border-radius:10px;padding:9px 13px;font-size:11px;font-weight:600;margin-bottom:14px;display:none;align-items:center;gap:8px;">
+      ⏰ <span id="sessionWarnMsg">Session expiring soon — click anywhere to stay logged in.</span>
+      <span id="sessionWarnMsg">Session expiring soon - click forgotten of  password</span>
+    </div>
+    <div class="atop">
+      <div><div class="atitle">Dashboard</div><div class="asub">Hon. Ebenezer Atta Marfo Hotel</div></div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div>
+          <div style="font-size:12px;font-weight:700;text-align:right;" id="dashName">Admin</div>
+          <div style="font-size:10px;color:var(--muted);text-align:right;" id="dashRole">Administrator</div>
+        </div>
+        <div class="avatar" id="dashAv">A</div>
+        <button class="btn-out" onclick="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="tabs" id="dashTabs">
+      <button class="tbtn active" onclick="switchTab('overview',this)">📊 Overview</button>
+      <button class="tbtn" id="tabRoomsBtn" onclick="switchTab('rooms',this)">🛏️ Rooms</button>
+      <button class="tbtn" onclick="switchTab('bookings',this)">📋 Bookings</button>
+      <button class="tbtn" id="tabAccountsBtn" onclick="switchTab('accounts',this)">👥 Accounts</button>
+      <button class="tbtn" onclick="switchTab('profile',this)">👤 My Profile</button>
+    </div>
+    <div class="tcnt active" id="tab-overview"><div class="sgrid" id="statsGrid"></div></div>
+    <div class="tcnt" id="tab-rooms"><div id="roomMgmtList"></div></div>
+    <div class="tcnt" id="tab-bookings"><div class="blist" id="bookingList"><div class="empty-box">📭 No bookings yet</div></div></div>
+    <div class="tcnt" id="tab-accounts">
+      <div class="achdr">
+        <div class="actitle">👥 Staff Accounts</div>
+        <button class="btn-addac" id="addAcctBtn" onclick="openAddAcct()">+ Add Account</button>
+      </div>
+      <div class="aclist" id="acctList"></div>
+    </div>
+    <div class="tcnt" id="tab-profile">
+      <div id="profilePanel"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     MOMO-STYLE PAYMENT SELECTION OVERLAY
+══════════════════════════════════════ -->
+<div id="paySelectOv" style="display:none;position:fixed;inset:0;background:rgba(26,107,74,.97);z-index:200;overflow-y:auto;font-family:'DM Sans',sans-serif;">
+  <div style="max-width:420px;margin:0 auto;padding:30px 18px 60px;text-align:center;color:#fff;">
+    <div style="font-size:50px;margin-bottom:10px;">💳</div>
+    <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:900;margin-bottom:8px;">Choose Payment Method</div>
+    <p style="font-size:13px;opacity:.85;margin-bottom:20px;line-height:1.5;">Your booking is submitted!<br>Select how you want to pay below.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:22px;">
+      <div style="width:28px;height:28px;border-radius:50%;background:#fff;color:var(--green);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;">✓</div>
+      <div style="height:2px;width:32px;background:rgba(255,255,255,.5);"></div>
+      <div style="width:28px;height:28px;border-radius:50%;background:#fff;color:var(--green);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;">2</div>
+      <div style="height:2px;width:32px;background:rgba(255,255,255,.3);"></div>
+      <div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.25);color:rgba(255,255,255,.7);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;">3</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:10px;opacity:.65;margin-bottom:22px;padding:0 4px;"><span>Submitted</span><span>Pay</span><span>Get Code</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;">
+      <div onclick="openMoMoPrompt('mtn')" style="background:#FFC107;color:#1a1a1a;border-radius:14px;padding:16px 10px;cursor:pointer;transition:transform .15s;box-shadow:0 4px 14px rgba(0,0,0,.2);" ontouchstart="this.style.transform='scale(.96)'" ontouchend="this.style.transform='scale(1)'">
+        <div style="font-size:30px;margin-bottom:6px;">📱</div>
+        <div style="font-weight:800;font-size:13px;">MTN MoMo</div>
+        <div style="font-size:10px;margin-top:3px;opacity:.75;">*170# · Tap to pay</div>
+      </div>
+      <div onclick="openMoMoPrompt('airteltigo')" style="background:#E53935;color:#fff;border-radius:14px;padding:16px 10px;cursor:pointer;transition:transform .15s;box-shadow:0 4px 14px rgba(0,0,0,.2);" ontouchstart="this.style.transform='scale(.96)'" ontouchend="this.style.transform='scale(1)'">
+        <div style="font-size:30px;margin-bottom:6px;">📲</div>
+        <div style="font-weight:800;font-size:13px;">AirtelTigo</div>
+        <div style="font-size:10px;margin-top:3px;opacity:.85;">*110# · Tap to pay</div>
+      </div>
+      <div onclick="openMoMoPrompt('telecel')" style="background:#43A047;color:#fff;border-radius:14px;padding:16px 10px;cursor:pointer;transition:transform .15s;box-shadow:0 4px 14px rgba(0,0,0,.2);" ontouchstart="this.style.transform='scale(.96)'" ontouchend="this.style.transform='scale(1)'">
+        <div style="font-size:30px;margin-bottom:6px;">💚</div>
+        <div style="font-weight:800;font-size:13px;">Telecel Cash</div>
+        <div style="font-size:10px;margin-top:3px;opacity:.85;">*700# · Tap to pay</div>
+      </div>
+      <div onclick="openMoMoPrompt('gcb')" style="background:#1565C0;color:#fff;border-radius:14px;padding:16px 10px;cursor:pointer;transition:transform .15s;box-shadow:0 4px 14px rgba(0,0,0,.2);" ontouchstart="this.style.transform='scale(.96)'" ontouchend="this.style.transform='scale(1)'">
+        <div style="font-size:30px;margin-bottom:6px;">🏦</div>
+        <div style="font-weight:800;font-size:13px;">GCB Bank</div>
+        <div style="font-size:10px;margin-top:3px;opacity:.85;">Transfer · Tap</div>
+      </div>
+      <div onclick="openMoMoPrompt('cash')" style="background:rgba(255,255,255,.15);color:#fff;border-radius:14px;padding:16px 10px;cursor:pointer;transition:transform .15s;box-shadow:0 4px 14px rgba(0,0,0,.1);border:2px solid rgba(255,255,255,.3);" ontouchstart="this.style.transform='scale(.96)'" ontouchend="this.style.transform='scale(1)'">
+        <div style="font-size:30px;margin-bottom:6px;">💵</div>
+        <div style="font-weight:800;font-size:13px;">Cash</div>
+        <div style="font-size:10px;margin-top:3px;opacity:.8;">Pay on Arrival</div>
+      </div>
+      <div onclick="openMoMoPrompt('visa')" style="background:rgba(255,255,255,.15);color:#fff;border-radius:14px;padding:16px 10px;cursor:pointer;transition:transform .15s;box-shadow:0 4px 14px rgba(0,0,0,.1);border:2px solid rgba(255,255,255,.3);" ontouchstart="this.style.transform='scale(.96)'" ontouchend="this.style.transform='scale(1)'">
+        <div style="font-size:30px;margin-bottom:6px;">💳</div>
+        <div style="font-weight:800;font-size:13px;">Visa / Card</div>
+        <div style="font-size:10px;margin-top:3px;opacity:.8;">POS at Front Desk</div>
+      </div>
+    </div>
+    <button onclick="closePaySelect()" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);border-radius:11px;padding:10px 24px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer;">← Back</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     MOMO PROMPT SHEET (Bottom Drawer)
+══════════════════════════════════ -->
+<div class="momo-ov" id="momoPrompt">
+  <div class="momo-sheet" id="momoSheet">
+    <!-- Header (colour changes per network) -->
+    <div class="momo-header" id="momoHeader">
+      <div class="momo-pill"></div>
+      <div class="momo-net-icon" id="momoIcon">📱</div>
+      <div class="momo-net-name" id="momoNetName">MTN Mobile Money</div>
+      <div class="momo-net-sub" id="momoNetSub">Send Money · 0555091915</div>
+    </div>
+
+    <!-- STEP A: Amount -->
+    <div class="momo-body" id="momoStepA">
+      <div class="momo-field">
+        <label>Recipient</label>
+        <div class="momo-display">
+          <span id="momoRecipient">0555091915 · Ebenezer Atta Marfo</span>
+          <span class="momo-lock">🔒</span>
+        </div>
+      </div>
+      <div class="momo-field">
+        <label>Enter Amount (GH₵)</label>
+        <input class="momo-amount-input" id="momoAmount" type="number" placeholder="0.00" oninput="updateMomoTotal()">
+      </div>
+      <div class="momo-divider"></div>
+      <div class="momo-total-row">
+        <span class="momo-total-lbl">Total to Pay</span>
+        <span class="momo-total-val" id="momoTotalDisplay">GH₵ 0.00</span>
+      </div>
+      <div class="momo-action">
+        <button class="momo-pay-btn" id="momoProceedBtn">Proceed to Pay</button>
+        <button class="momo-cancel" onclick="closeMoMoPrompt()">Cancel</button>
+      </div>
+    </div>
+
+    <!-- STEP B: PIN entry -->
+    <div class="momo-body" id="momoStepB" style="display:none;">
+      <div style="text-align:center;margin-bottom:10px;">
+        <div style="font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;margin-bottom:4px;">Enter PIN</div>
+        <div style="font-size:11px;color:var(--muted);">Enter your 4-digit mobile money PIN</div>
+      </div>
+      <div style="background:#f8fafc;border-radius:12px;padding:14px;margin-bottom:12px;font-size:12px;color:var(--muted);text-align:center;">
+        Paying <b id="pinAmountShow" style="color:var(--green);font-size:14px;">GH₵ 0.00</b> to <b style="color:var(--text);">0555091915</b>
+      </div>
+      <div class="momo-pin-row" id="pinDots">
+        <div class="momo-pin-dot" id="pin0">·</div>
+        <div class="momo-pin-dot" id="pin1">·</div>
+        <div class="momo-pin-dot" id="pin2">·</div>
+        <div class="momo-pin-dot" id="pin3">·</div>
+      </div>
+      <div class="momo-keypad">
+        <button class="momo-key" onclick="pinKey('1')">1</button>
+        <button class="momo-key" onclick="pinKey('2')">2</button>
+        <button class="momo-key" onclick="pinKey('3')">3</button>
+        <button class="momo-key" onclick="pinKey('4')">4</button>
+        <button class="momo-key" onclick="pinKey('5')">5</button>
+        <button class="momo-key" onclick="pinKey('6')">6</button>
+        <button class="momo-key" onclick="pinKey('7')">7</button>
+        <button class="momo-key" onclick="pinKey('8')">8</button>
+        <button class="momo-key" onclick="pinKey('9')">9</button>
+        <button class="momo-key" onclick="pinKey('clr')" style="font-size:12px;color:var(--muted);">CLR</button>
+        <button class="momo-key" onclick="pinKey('0')">0</button>
+        <button class="momo-key del" onclick="pinKey('del')">⌫</button>
+      </div>
+      <div class="momo-action">
+        <button class="momo-pay-btn" id="pinConfirmBtn" onclick="momoGoToUssd()" disabled style="opacity:.5;">Next →</button>
+        <button class="momo-cancel" onclick="momoGoBack()">← Back</button>
+      </div>
+    </div>
+
+    <!-- STEP D: USSD-style confirmation (Press 1 to confirm) -->
+    <div class="momo-body" id="momoStepD" style="display:none;">
+
+      <!-- USSD terminal look -->
+      <div style="background:#1a1a1a;border-radius:14px;padding:18px 16px;margin-bottom:16px;font-family:'Courier New',monospace;color:#00e676;font-size:13px;line-height:2;">
+        <div style="color:#aaa;font-size:10px;margin-bottom:6px;letter-spacing:1px;">MOBILE MONEY SERVICE</div>
+        <div id="ussdNetLabel" style="color:#fff;font-weight:700;margin-bottom:8px;font-size:12px;">MTN Mobile Money</div>
+        <div style="border-top:1px solid #333;padding-top:10px;">
+          You are about to send<br>
+          <span style="color:#FFD600;font-weight:700;font-size:16px;" id="ussdAmount">GH₵ 0.00</span><br>
+          to <span style="color:#fff;" id="ussdRecipient">0555091915</span><br>
+          <span style="color:#aaa;font-size:11px;" id="ussdName">Ebenezer Atta Marfo</span>
+        </div>
+        <div style="border-top:1px solid #333;padding-top:10px;margin-top:8px;color:#fff;">
+          Enter:<br>
+          <span style="color:#00e676;">1</span> to <b>Confirm</b><br>
+          <span style="color:#ff5252;">2</span> to <b>Cancel</b>
+        </div>
+      </div>
+
+      <!-- Press 1 / Press 2 big buttons -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+        <button onclick="ussdConfirm(1)"
+          style="padding:18px 8px;border-radius:14px;border:3px solid #00e676;background:#f0fdf4;color:#166534;font-family:'DM Sans',sans-serif;font-weight:800;font-size:22px;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:4px;"
+          ontouchstart="this.style.transform='scale(.95)'" ontouchend="this.style.transform='scale(1)'">
+          <span>1</span>
+          <span style="font-size:10px;font-weight:600;color:#166534;">Confirm</span>
+        </button>
+        <button onclick="ussdConfirm(2)"
+          style="padding:18px 8px;border-radius:14px;border:3px solid #ff5252;background:#fff5f5;color:#dc2626;font-family:'DM Sans',sans-serif;font-weight:800;font-size:22px;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:4px;"
+          ontouchstart="this.style.transform='scale(.95)'" ontouchend="this.style.transform='scale(1)'">
+          <span>2</span>
+          <span style="font-size:10px;font-weight:600;color:#dc2626;">Cancel</span>
+        </button>
+      </div>
+
+      <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 12px;font-size:11px;color:#92400e;text-align:center;margin-bottom:6px;">
+        ⚠️ Press <b>1</b> only after you have verified the details above
+      </div>
+    </div>
+
+    <!-- STEP C: Cash / Card / GCB special info -->
+    <div class="momo-body" id="momoStepC" style="display:none;">
+      <div class="momo-info-card">
+        <div class="momo-info-icon" id="momoInfoIcon">💵</div>
+        <div class="momo-info-title" id="momoInfoTitle">Cash on Arrival</div>
+        <div class="momo-info-desc" id="momoInfoDesc">Bring the exact amount in GH₵ to our front desk. Our team is available 24 hours to receive you.</div>
+      </div>
+      <div style="background:#f0fdf4;border-radius:12px;padding:13px 14px;font-size:12px;color:#166534;margin-bottom:14px;">
+        💰 Amount Due: <b id="momoInfoAmount" style="font-size:14px;">GH₵ —</b>
+      </div>
+      <a class="momo-wa-btn" href="https://wa.me/233555091915" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="white"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.809A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.95 9.95 0 01-5.065-1.375l-.363-.215-4.57 1.073 1.11-4.447-.237-.376A9.951 9.951 0 016 15c0-5.523 4.477-10 10-10zm-3.172 5.5c-.2 0-.524.075-.8.375C11.75 11.175 11 12.05 11 13.838c0 1.787 1.056 3.512 1.206 3.762.15.25 2.069 3.237 5.088 4.413 2.525.987 3.038.79 3.588.74.55-.05 1.775-.725 2.025-1.425.25-.7.25-1.3.175-1.425-.075-.125-.275-.2-.575-.35-.3-.15-1.775-.875-2.05-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-.3-.15-1.265-.466-2.41-1.485-.89-.793-1.49-1.772-1.665-2.072-.175-.3-.018-.462.132-.612.134-.134.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.663-1.637-.925-2.237-.238-.575-.488-.5-.675-.51-.175-.008-.375-.01-.575-.01z"/></svg>
+        Notify Hotel on WhatsApp
+      </a>
+      <div class="momo-action">
+        <button class="momo-pay-btn" onclick="momoConfirmArival()" style="margin-top:8px;">✅ Confirm – I Will Pay on Arrival</button>
+        <button class="momo-cancel" onclick="closeMoMoPrompt()">← Back</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Processing spinner -->
+<div class="momo-processing" id="momoProcessing">
+  <div class="momo-spinner"></div>
+  <div style="font-size:18px;font-weight:800;margin-bottom:8px;" id="processingTitle">Processing Payment…</div>
+  <div style="font-size:13px;opacity:.8;" id="processingMsg">Please wait while we confirm your transaction</div>
+</div>
+
+<!-- Payment Sent / Waiting Screen -->
+<div id="payWaitOv" style="display:none;position:fixed;inset:0;background:linear-gradient(160deg,#114232,#1a6b4a);z-index:200;overflow-y:auto;font-family:'DM Sans',sans-serif;">
+  <div style="max-width:420px;margin:0 auto;padding:36px 20px 60px;text-align:center;color:#fff;">
+    <div style="font-size:60px;margin-bottom:14px;">⏳</div>
+    <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:900;margin-bottom:10px;">Payment Submitted!</div>
+    <p style="font-size:13px;opacity:.9;line-height:1.8;margin-bottom:22px;">
+      Your payment has been sent to admin for verification.<br><br>
+      ⛔ <b>Do NOT come to the hotel yet.</b><br>
+      ✅ Once admin confirms, you'll receive your <b>reference code</b> via WhatsApp.<br>
+      🏨 <b>Only come after receiving your reference code.</b>
+    </p>
+    <div id="payWaitSummary" style="background:rgba(0,0,0,.22);border-radius:14px;padding:16px;font-size:13px;line-height:1.9;text-align:left;margin-bottom:22px;"></div>
+    <a href="https://wa.me/233555091915" target="_blank"
+      style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;padding:13px 22px;border-radius:13px;text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;margin-bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.2);">
+      <svg width="18" height="18" viewBox="0 0 32 32" fill="white"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.809A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.95 9.95 0 01-5.065-1.375l-.363-.215-4.57 1.073 1.11-4.447-.237-.376A9.951 9.951 0 016 15c0-5.523 4.477-10 10-10zm-3.172 5.5c-.2 0-.524.075-.8.375C11.75 11.175 11 12.05 11 13.838c0 1.787 1.056 3.512 1.206 3.762.15.25 2.069 3.237 5.088 4.413 2.525.987 3.038.79 3.588.74.55-.05 1.775-.725 2.025-1.425.25-.7.25-1.3.175-1.425-.075-.125-.275-.2-.575-.35-.3-.15-1.775-.875-2.05-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-.3-.15-1.265-.466-2.41-1.485-.89-.793-1.49-1.772-1.665-2.072-.175-.3-.018-.462.132-.612.134-.134.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.663-1.637-.925-2.237-.238-.575-.488-.5-.675-.51-.175-.008-.375-.01-.575-.01z"/></svg>
+      Follow Up on WhatsApp
+    </a><br>
+    <button onclick="closePayWait()" style="background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.3);border-radius:11px;padding:10px 24px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer;margin-top:8px;">🏠 Back to Home</button>
+  </div>
+</div>
+
+<!-- REFERENCE CODE OVERLAY -->
+<div id="refOverlay" style="display:none;position:fixed;inset:0;background:linear-gradient(160deg,#114232 0%,#1a6b4a 60%,#2a8a5f 100%);z-index:300;overflow-y:auto;font-family:'DM Sans',sans-serif;">
+  <div style="max-width:440px;margin:0 auto;padding:30px 18px 60px;color:#fff;text-align:center;">
+    <div style="font-size:64px;margin-bottom:10px;">🎉</div>
+    <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:900;margin-bottom:6px;">Booking Confirmed!</div>
+    <div style="font-size:13px;opacity:.85;margin-bottom:22px;line-height:1.6;">Your payment has been verified by the hotel admin.<br><b>Your official reference code is below.</b></div>
+    <div style="background:#fff;border-radius:20px;padding:22px 20px;margin-bottom:22px;box-shadow:0 10px 40px rgba(0,0,0,.3);">
+      <div style="font-size:10px;font-weight:800;color:#6b7280;letter-spacing:2px;margin-bottom:8px;">HOTEL REFERENCE CODE</div>
+      <div id="refCode" style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#1a6b4a;letter-spacing:5px;margin-bottom:10px;">HEAM-0000</div>
+      <div style="height:2px;background:linear-gradient(90deg,#1a6b4a,#2a8a5f,#1a6b4a);border-radius:2px;margin-bottom:10px;"></div>
+      <div style="font-size:11px;color:#dc2626;font-weight:700;">📌 Screenshot this page — bring this code when you arrive</div>
+    </div>
+    <div style="background:rgba(0,0,0,.22);border-radius:18px;padding:20px 18px;margin-bottom:18px;text-align:left;">
+      <div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:900;text-align:center;margin-bottom:16px;">📋 Booking Summary</div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:12px;">
+        <span style="opacity:.75;">👤 Name</span><span id="r_name" style="font-weight:700;">—</span>
+        <span style="opacity:.75;">📞 Phone</span><span id="r_phone" style="font-weight:700;">—</span>
+        <span style="opacity:.75;">🛏️ Room</span><span id="r_room" style="font-weight:700;">—</span>
+        <span style="opacity:.75;">📅 Check-in</span><span id="r_checkin" style="font-weight:700;">—</span>
+        <span style="opacity:.75;">📅 Check-out</span><span id="r_checkout" style="font-weight:700;">—</span>
+        <span style="opacity:.75;">🌙 Nights</span><span id="r_nights" style="font-weight:700;">—</span>
+        <span style="opacity:.75;">💳 Paid via</span><span id="r_paymethod" style="font-weight:700;">—</span>
+        <span style="opacity:.75;">💰 Amount</span><span id="r_amount" style="font-weight:700;">—</span>
+      </div>
+    </div>
+    <div style="background:rgba(220,38,38,.15);border:2px solid rgba(220,38,38,.4);border-radius:14px;padding:16px;font-size:12px;line-height:1.8;margin-bottom:20px;text-align:left;">
+      <div style="font-weight:900;font-size:14px;margin-bottom:8px;color:#fca5a5;">⚠️ MUST READ BEFORE COMING</div>
+      🔑 <b>Show this reference code</b> at the front desk<br>
+      🪪 Bring a valid <b>National ID / Passport / Voters Card</b><br>
+      🕐 We are open <b>24 hours</b> — arrive any time<br>
+      📞 Questions? WhatsApp: <b>0555091915</b>
+    </div>
+    <a href="https://wa.me/233555091915" target="_blank"
+      style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 26px;border-radius:14px;text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;margin-bottom:14px;box-shadow:0 6px 20px rgba(37,211,102,.3);">
+      <svg width="18" height="18" viewBox="0 0 32 32" fill="white"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.809A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.95 9.95 0 01-5.065-1.375l-.363-.215-4.57 1.073 1.11-4.447-.237-.376A9.951 9.951 0 016 15c0-5.523 4.477-10 10-10zm-3.172 5.5c-.2 0-.524.075-.8.375C11.75 11.175 11 12.05 11 13.838c0 1.787 1.056 3.512 1.206 3.762.15.25 2.069 3.237 5.088 4.413 2.525.987 3.038.79 3.588.74.55-.05 1.775-.725 2.025-1.425.25-.7.25-1.3.175-1.425-.075-.125-.275-.2-.575-.35-.3-.15-1.775-.875-2.05-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-.3-.15-1.265-.466-2.41-1.485-.89-.793-1.49-1.772-1.665-2.072-.175-.3-.018-.462.132-.612.134-.134.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.663-1.637-.925-2.237-.238-.575-.488-.5-.675-.51-.175-.008-.375-.01-.575-.01z"/></svg>
+      Contact Hotel on WhatsApp
+    </a>
+    <div style="margin-bottom:14px;font-size:11px;opacity:.7;">Hon. Ebenezer Atta Marfo Hotel · Akyem Apedwa, Eastern Region, Ghana</div>
+    <button onclick="closeRefOverlay()" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);border-radius:12px;padding:12px 28px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;cursor:pointer;">🏠 Back to Home</button>
+  </div>
+</div>
+
+<!-- NO AVAILABILITY -->
+<div class="noav-ov" id="noAvailOverlay">
+  <div style="font-size:56px;margin-bottom:12px;">😔</div>
+  <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:900;margin-bottom:8px;">No Rooms Available</div>
+  <div style="font-size:13px;opacity:.9;line-height:1.6;">Sorry, all <b id="noAvailRoom"></b> rooms are fully reserved.<br>Please try another room type or contact us on WhatsApp.</div>
+  <button style="background:#fff;color:var(--red);border:none;padding:12px 32px;border-radius:12px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;cursor:pointer;margin-top:20px;" onclick="document.getElementById('noAvailOverlay').classList.remove('show')">Choose Another Room</button>
+</div>
+
+<!-- ACCOUNT MODAL -->
+<div class="modal-ov" id="acctModal">
+  <div class="modal">
+    <div class="mtitle" id="mTitle">➕ Add New Account</div>
+    <div class="mf"><label>Full Name</label><input class="mi" id="mFName" placeholder="e.g. Ama Boateng"></div>
+    <div class="mf"><label>Username</label><input class="mi" id="mUname" placeholder="Choose a username"></div>
+    <div class="mf"><label>Email</label><input class="mi" type="email" id="mEmail" placeholder="staff@hotel.com"></div>
+    <div class="mf"><label>Password <span id="mPHint" style="color:var(--muted);font-weight:400;font-size:10px;">(leave blank to keep current)</span></label><input class="mi" type="password" id="mPass" placeholder="Set password"></div>
+    <div class="mf">
+      <label>Role</label>
+      <div class="rchips">
+        <div class="rchip sel" onclick="selMRole(this,'superadmin')" data-role="superadmin"><span class="rci">👑</span>Super Admin</div>
+        <div class="rchip" onclick="selMRole(this,'admin')" data-role="admin"><span class="rci">🛡️</span>Admin</div>
+        <div class="rchip" onclick="selMRole(this,'staff')" data-role="staff"><span class="rci">👤</span>Staff</div>
+      </div>
+    </div>
+    <div class="merr" id="mErr"></div>
+    <div class="mbtns">
+      <button class="mbtn cl" onclick="closeModal()">Cancel</button>
+      <button class="mbtn ok" onclick="saveAcct()">Save Account</button>
+    </div>
+  </div>
+</div>
+
+<!-- SEND REF CODE PANEL (Admin side) -->
+<div id="sendRefPanel" style="display:none;position:fixed;inset:0;background:linear-gradient(160deg,#114232,#1a6b4a 60%,#2a8a5f);z-index:400;overflow-y:auto;font-family:'DM Sans',sans-serif;"></div>
+
+<!-- AI CHAT BUTTON -->
+<button id="chatToggle" onclick="toggleChat()"
+  style="position:fixed;bottom:90px;right:20px;z-index:150;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#1a6b4a,#2a8a5f);border:none;cursor:pointer;box-shadow:0 6px 20px rgba(26,107,74,.45);display:flex;align-items:center;justify-content:center;font-size:26px;transition:all .3s;">
+  🤖
+</button>
+<div id="chatWindow" style="display:none;position:fixed;bottom:158px;right:12px;z-index:160;width:320px;max-width:calc(100vw - 24px);background:#fff;border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.18);overflow:hidden;font-family:'DM Sans',sans-serif;flex-direction:column;">
+  <div style="background:linear-gradient(135deg,#1a6b4a,#2a8a5f);padding:14px 16px;display:flex;align-items:center;gap:10px;">
+    <div style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:20px;">🤖</div>
+    <div style="flex:1;"><div style="color:#fff;font-weight:700;font-size:13px;">Hotel AI Assistant</div><div style="color:rgba(255,255,255,.8);font-size:10px;display:flex;align-items:center;gap:4px;"><span style="width:6px;height:6px;background:#4ade80;border-radius:50%;display:inline-block;"></span> Online 24/7</div></div>
+    <button onclick="toggleChat()" style="background:rgba(255,255,255,.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;">✕</button>
+  </div>
+  <div id="chatMessages" style="height:280px;overflow-y:auto;padding:14px 12px;background:#f8fafc;display:flex;flex-direction:column;gap:10px;">
+    <div style="display:flex;gap:8px;align-items:flex-start;">
+      <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#1a6b4a,#2a8a5f);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">🤖</div>
+      <div style="background:#fff;border-radius:0 12px 12px 12px;padding:10px 12px;font-size:12px;color:#1a1a1a;line-height:1.5;box-shadow:0 1px 4px rgba(0,0,0,.08);max-width:220px;">👋 Hello! I'm the <b>Hotel AI Assistant</b>.<br><br>Ask me anything about our rooms, prices, or services! 🏨</div>
+    </div>
+    <div id="quickBtns" style="display:flex;flex-wrap:wrap;gap:6px;padding-left:36px;">
+      <button onclick="askQuick('What room types do you have and what are the prices?')" style="background:#e8f5e9;color:#1a6b4a;border:1px solid #c8e6c9;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">🛏️ Rooms & Prices</button>
+      <button onclick="askQuick('How do I make a booking and pay?')" style="background:#e8f5e9;color:#1a6b4a;border:1px solid #c8e6c9;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">📋 How to Book</button>
+      <button onclick="askQuick('What payment methods do you accept?')" style="background:#e8f5e9;color:#1a6b4a;border:1px solid #c8e6c9;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">💳 Payment Methods</button>
+      <button onclick="askQuick('Where is the hotel located?')" style="background:#e8f5e9;color:#1a6b4a;border:1px solid #c8e6c9;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">📍 Location</button>
+    </div>
+  </div>
+  <div style="padding:10px 12px;background:#fff;border-top:1px solid #f1f5f9;display:flex;gap:8px;align-items:center;">
+    <input id="chatInput" type="text" placeholder="Ask about the hotel..." onkeydown="if(event.key==='Enter')sendChat()"
+      style="flex:1;padding:9px 13px;border:2px solid #e5e7eb;border-radius:20px;font-family:'DM Sans',sans-serif;font-size:12px;outline:none;transition:border .2s;"
+      onfocus="this.style.borderColor='#1a6b4a'" onblur="this.style.borderColor='#e5e7eb'">
+    <button onclick="sendChat()" style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#1a6b4a,#2a8a5f);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">➤</button>
+  </div>
+</div>
+
+<style>
+.chat-typing{display:flex;gap:4px;align-items:center;padding:8px 12px;}
+.chat-typing span{width:7px;height:7px;border-radius:50%;background:#9ca3af;animation:bounce .9s infinite;}
+.chat-typing span:nth-child(2){animation-delay:.15s;}
+.chat-typing span:nth-child(3){animation-delay:.3s;}
+@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+.aerr{color:var(--red);font-size:11px;margin-top:7px;padding:7px 11px;background:var(--rl);border-radius:7px;display:none;line-height:1.5;}
+.sec-warn{background:#fef9c3;color:#854d0e;border:1px solid #fde047;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:600;margin-top:8px;display:none;}
+</style>
+
+<script>
+// ═══ STATE ═══
+const HOTEL_NUMBER = '0555091915'; // ← Single source of truth for payment number
+
+let rooms = {
+  standard:  { name:'Standard Room',  price:200, total:5, booked:0, available:true },
+  deluxe:    { name:'Deluxe Room',    price:300, total:4, booked:0, available:true },
+  executive: { name:'Executive Room', price:400, total:3, booked:0, available:true }
+};
+let bookings = [];
+let currentUser = null;
+let editAcctIdx = null;
+let mRole = 'superadmin';
+let regRole = 'admin';
+let currentBookingIdx = -1;
+let pinBuffer = '';
+let currentNetKey = '';
+
+let adminAccounts = [
+  { fullName:'Super Administrator', username:'admin', email:'admin@hotel.com', password:'hotel2024', role:'superadmin', isDefault:true }
+];
+
+const NETS = {
+  mtn:       { icon:'📱', name:'MTN Mobile Money',  color:'#FFC107', textColor:'#1a1a1a', ussd:'*170#' },
+  airteltigo:{ icon:'📲', name:'AirtelTigo Money',  color:'#E53935', textColor:'#fff',    ussd:'*110#' },
+  telecel:   { icon:'💚', name:'Telecel Cash',       color:'#43A047', textColor:'#fff',    ussd:'*700#' },
+  gcb:       { icon:'🏦', name:'GCB Bank Transfer',  color:'#1565C0', textColor:'#fff',    ussd:null    },
+  cash:      { icon:'💵', name:'Cash on Arrival',    color:null,      textColor:'#fff',    ussd:null    },
+  visa:      { icon:'💳', name:'Visa / Card (POS)',  color:null,      textColor:'#fff',    ussd:null    }
+};
+
+// ═══ VIEWS ═══
+function showView(id){
+  // Security guard — can't reach adminView without login
+  if(id === 'adminView' && !currentUser){ id = 'loginView'; }
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  const el = document.getElementById(id);
+  if(el) el.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── Alias for internal security calls that must bypass the guard ──
+function _showViewDirect(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  const el = document.getElementById(id);
+  if(el) el.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ═══════════════════════════════════════════
+// SECURITY LAYER
+// ═══════════════════════════════════════════
+
+// 1. LOGIN RATE LIMITING & LOCKOUT
+const SEC = {
+  maxAttempts : 5,
+  lockDuration: 5*60*1000,
+  sessionTTL  : 30*60*1000,
+  attempts    : 0,
+  lockedUntil : 0,
+  sessionTimer: null,
+  warnTimer   : null,
+  lastActivity: Date.now()
+};
+
+function secIsLocked(){
+  if(SEC.lockedUntil && Date.now() < SEC.lockedUntil) return true;
+  if(SEC.lockedUntil && Date.now() >= SEC.lockedUntil){ SEC.attempts=0; SEC.lockedUntil=0; }
+  return false;
+}
+
+function secLockMsg(){
+  const s = Math.ceil((SEC.lockedUntil - Date.now())/1000);
+  const m = Math.floor(s/60), r = s%60;
+  return `🔒 Too many failed attempts. Try again in ${m}:${r<10?'0':''}${r}`;
+}
+
+// 2. SESSION TIMEOUT — reset on any user activity
+function secResetTimer(){
+  SEC.lastActivity = Date.now();
+  clearTimeout(SEC.sessionTimer);
+  clearTimeout(SEC.warnTimer);
+  const warn = document.getElementById('sessionWarn');
+  if(warn) warn.style.display = 'none';
+
+  if(currentUser){
+    const warnAt = SEC.sessionTTL - 5*60*1000; // warn 5 min before
+    SEC.warnTimer = setTimeout(()=>{
+      if(currentUser){
+        const w = document.getElementById('sessionWarn');
+        if(w){ w.style.display='flex'; }
+      }
+    }, warnAt > 0 ? warnAt : 0);
+
+    SEC.sessionTimer = setTimeout(()=>{
+      if(currentUser){
+        currentUser = null;
+        clearTimeout(SEC.warnTimer);
+        const w = document.getElementById('sessionWarn');
+        if(w) w.style.display='none';
+        _showViewDirect('guestView');
+        showSecAlert('⏰ Session expired — you were logged out due to inactivity.');
+      }
+    }, SEC.sessionTTL);
+  }
+}
+
+function showSecAlert(msg){
+  const d = document.createElement('div');
+  d.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:12px 20px;border-radius:12px;font-size:13px;font-weight:600;z-index:9999;box-shadow:0 6px 24px rgba(0,0,0,.3);max-width:320px;text-align:center;';
+  d.textContent = msg;
+  document.body.appendChild(d);
+  setTimeout(()=>d.remove(), 4000);
+}
+
+// Track activity on the whole page
+['click','keydown','touchstart','scroll'].forEach(ev=>{
+  document.addEventListener(ev, ()=>{ if(currentUser) secResetTimer(); }, {passive:true});
+});
+
+// 3. HIDDEN ADMIN ACCESS
+// Triple-tap logo → real login (invisible to public, no link anywhere)
+let logoTapCount=0, logoTapTimer=null;
+function handleLogoTap(){
+  logoTapCount++;
+  clearTimeout(logoTapTimer);
+  logoTapTimer = setTimeout(()=>{ logoTapCount=0; }, 700);
+  if(logoTapCount >= 3){
+    logoTapCount = 0;
+    clearTimeout(logoTapTimer);
+    _showViewDirect('loginView');
+    window.scrollTo({top:0});
+  }
+}
+
+// Decoy tap kept as bonus easter egg (5-taps on decoy email → also login)
+let decoyTapCount=0, decoyTapTimer=null;
+function handleDecoyTap(){
+  decoyTapCount++;
+  clearTimeout(decoyTapTimer);
+  decoyTapTimer = setTimeout(()=>{ decoyTapCount=0; }, 800);
+  if(decoyTapCount >= 5){
+    decoyTapCount = 0;
+    clearTimeout(decoyTapTimer);
+    _showViewDirect('loginView');
+    window.scrollTo({top:0});
+  }
+}
+
+// Password show/hide toggle
+function togglePassVis(inputId, icon){
+  const inp = document.getElementById(inputId);
+  if(inp.type === 'password'){ inp.type='text'; icon.textContent='🙈'; }
+  else                       { inp.type='password'; icon.textContent='👁️'; }
+}
+
+// Block direct URL hash navigation to admin
+window.addEventListener('hashchange', ()=>{
+  if(location.hash.toLowerCase().includes('admin') && !currentUser){
+    location.hash = '';
+    _showViewDirect('guestView');
+  }
+});
+
+// 4. TAMPER DETECTION — protect bookings array
+function secValidateBooking(b){
+  return b && b.ref && b.name && b.status && b.roomType;
+}
+
+// ═══ AUTH ═══
+function doLogin(){
+  const errEl = document.getElementById('loginErr');
+  errEl.style.display = 'none';
+
+  // Check lockout
+  if(secIsLocked()){
+    errEl.textContent = secLockMsg();
+    errEl.style.display = 'block';
+    // Countdown refresh
+    clearInterval(window._lockInterval);
+    window._lockInterval = setInterval(()=>{
+      if(!secIsLocked()){ clearInterval(window._lockInterval); errEl.style.display='none'; return; }
+      errEl.textContent = secLockMsg();
+    }, 1000);
+    return;
+  }
+
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+
+  // Basic input sanity
+  if(!u || !p){
+    errEl.textContent = '❌ Please enter username and password.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  // Artificial delay to slow brute force
+  const btn = document.getElementById('loginBtn');
+  if(btn){ btn.disabled=true; btn.textContent='Checking…'; }
+
+  setTimeout(()=>{
+    if(btn){ btn.disabled=false; btn.textContent='Sign In'; }
+
+    const a = adminAccounts.find(x => x.username===u && x.password===p);
+    if(a){
+      // SUCCESS — reset all counters and bar
+      SEC.attempts = 0;
+      SEC.lockedUntil = 0;
+      const bar = document.getElementById('loginAttemptBar');
+      const fill = document.getElementById('loginAttemptFill');
+      if(bar){ bar.style.display='none'; }
+      if(fill){ fill.style.width='0%'; }
+      currentUser = a;
+      document.getElementById('loginErr').style.display = 'none';
+      document.getElementById('loginUser').value = '';
+      document.getElementById('loginPass').value = '';
+      secResetTimer();
+      renderDashboard();
+      _showViewDirect('adminView');
+    } else {
+      // FAILURE
+      SEC.attempts++;
+      const left = SEC.maxAttempts - SEC.attempts;
+      // Show + update attempt bar
+      const bar = document.getElementById('loginAttemptBar');
+      const fill = document.getElementById('loginAttemptFill');
+      if(bar && fill){
+        bar.style.display = 'block';
+        fill.style.width = (SEC.attempts / SEC.maxAttempts * 100) + '%';
+      }
+      if(SEC.attempts >= SEC.maxAttempts){
+        SEC.lockedUntil = Date.now() + SEC.lockDuration;
+        SEC.attempts = 0;
+        errEl.textContent = secLockMsg();
+        // Start countdown
+        clearInterval(window._lockInterval);
+        window._lockInterval = setInterval(()=>{
+          if(!secIsLocked()){ clearInterval(window._lockInterval); errEl.style.display='none'; return; }
+          errEl.textContent = secLockMsg();
+        }, 1000);
+      } else {
+        errEl.textContent = `❌ Incorrect username or password. ${left} attempt${left!==1?'s':''} remaining.`;
+      }
+      errEl.style.display = 'block';
+      // Shake the login card
+      const card = document.querySelector('#loginView > div > div');
+      if(card){ card.style.animation='shake .4s ease'; setTimeout(()=>card.style.animation='',500); }
+    }
+  }, 350);
+}
+
+function logout(){
+  clearTimeout(SEC.sessionTimer);
+  clearTimeout(SEC.warnTimer);
+  currentUser = null;
+  SEC.attempts = 0;
+  const w = document.getElementById('sessionWarn');
+  if(w) w.style.display = 'none';
+  _showViewDirect('guestView');
+}
+
+function selectRegRole(el,r){
+  document.querySelectorAll('.ropt').forEach(x=>x.classList.remove('sel'));
+  el.classList.add('sel'); regRole=r;
+}
+
+function previewRegAvatar(input){
+  if(!input.files||!input.files[0])return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const prev=document.getElementById('regAvatarPreview');
+    prev.innerHTML=`<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+    prev._imgData=e.target.result;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function doRegister(){
+  const firstName=document.getElementById('regFirstName')?document.getElementById('regFirstName').value.trim():'';
+  const lastName =document.getElementById('regLastName') ?document.getElementById('regLastName').value.trim():'';
+  const uname    =document.getElementById('regUser').value.trim();
+  const phone    =document.getElementById('regPhone')    ?document.getElementById('regPhone').value.trim():'';
+  const email    =document.getElementById('regEmail').value.trim();
+  const pass     =document.getElementById('regPass').value;
+  const pass2    =document.getElementById('regPass2').value;
+  const errEl    =document.getElementById('regErr');
+  const sucEl    =document.getElementById('regSuc');
+  errEl.style.display='none'; sucEl.style.display='none';
+
+  const fullName = (firstName+' '+lastName).trim();
+  if(!firstName||!lastName){errEl.textContent='❌ Please enter your first and last name.';errEl.style.display='block';return;}
+  if(!uname){errEl.textContent='❌ Please choose a username.';errEl.style.display='block';return;}
+  if(!email){errEl.textContent='❌ Please enter your email.';errEl.style.display='block';return;}
+  if(!pass||pass.length<6){errEl.textContent='❌ Password must be at least 6 characters.';errEl.style.display='block';return;}
+  if(pass!==pass2){errEl.textContent='❌ Passwords do not match.';errEl.style.display='block';return;}
+  if(adminAccounts.find(a=>a.username===uname)){errEl.textContent='❌ Username already taken. Choose another.';errEl.style.display='block';return;}
+
+  const avatarEl=document.getElementById('regAvatarPreview');
+  const avatar=avatarEl&&avatarEl._imgData?avatarEl._imgData:null;
+
+  const newAcct={
+    fullName, firstName, lastName, username:uname, phone, email,
+    password:pass, role:regRole, isDefault:false, avatar,
+    joinedAt:new Date().toLocaleDateString('en-GH',{day:'numeric',month:'long',year:'numeric'})
+  };
+  adminAccounts.push(newAcct);
+  currentUser=newAcct;
+
+  sucEl.textContent='✅ Account created! Logging you in…';
+  sucEl.style.display='block';
+  ['regFirstName','regLastName','regUser','regPhone','regEmail','regPass','regPass2'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+
+  setTimeout(()=>{
+    sucEl.style.display='none';
+    secResetTimer();
+    renderDashboard();
+    _showViewDirect('adminView');
+  },1200);
+}
+
+// ═══ ROOMS ═══
+function getRoomAvail(type){return Math.max(0,rooms[type].total-rooms[type].booked);}
+
+function renderRoomCards(){
+  const defs=[
+    {type:'standard',icon:'🛏️',cls:'std',amenities:['🌬️ Fan','📺 TV','🚿 Bathroom','🛜 WiFi']},
+    {type:'deluxe',icon:'🛌',cls:'dlx',amenities:['❄️ A/C','📺 TV','🛁 En-suite','🛜 WiFi']},
+    {type:'executive',icon:'🏆',cls:'exc',amenities:['❄️ A/C','🖥️ Smart TV','🛁 Bathtub','🍳 Kitchen']}
+  ];
+  document.getElementById('roomsGrid').innerHTML=defs.map(d=>{
+    const r=rooms[d.type],avail=getRoomAvail(d.type),isFull=!r.available||avail===0;
+    const isLow=avail<=1&&avail>0;
+    const badge=isFull?`<span class="sold-badge">SOLD OUT</span>`:`<span class="avail-badge">${avail} left</span>`;
+    const cCls=isFull?'full':isLow?'low':'';
+    const cTxt=isFull?'❌ No rooms available':isLow?`⚠️ Only ${avail} room left!`:`✅ ${avail} of ${r.total} available`;
+    return `<div class="rcard ${isFull?'unavail':''}" data-type="${d.type}">
+      <div class="rimg ${d.cls}">${d.icon}${badge}</div>
+      <div class="rinfo">
+        <div class="rtype">${r.name}</div>
+        <div class="rprice">GH₵${r.price} <span>/ night</span></div>
+        <div class="ramen">${d.amenities.map(a=>`<span class="amen">${a}</span>`).join('')}</div>
+        <div class="rcnt ${cCls}">${cTxt}</div>
+        <button class="btn-sel" ${isFull?'disabled':''} onclick="selectRoom('${d.type}',${r.price})">${isFull?'Not Available':'Select Room'}</button>
+      </div></div>`;
+  }).join('');
+}
+
+function filterRooms(type,btn){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.rcard').forEach(c=>{c.style.display=(type==='all'||c.dataset.type===type)?'block':'none';});
+}
+
+function selectRoom(type,price){
+  const r=rooms[type],avail=getRoomAvail(type);
+  if(!r.available||avail===0){document.getElementById('noAvailRoom').textContent=r.name;document.getElementById('noAvailOverlay').classList.add('show');return;}
+  const map={200:0,300:1,400:2};
+  document.getElementById('roomType').selectedIndex=map[price];
+  calcTotal();scrollToBook();
+}
+function scrollToBook(){const bs=document.getElementById('bsec');bs.style.display='block';bs.scrollIntoView({behavior:'smooth'});}
+
+function calcTotal(){
+  const ciDate=document.getElementById('checkinDate').value;
+  const ciTime=document.getElementById('checkinTime').value||'14:00';
+  const coDate=document.getElementById('checkoutDate').value;
+  const coTime=document.getElementById('checkoutTime').value||'12:00';
+  const rate=parseInt(document.getElementById('roomType').value);
+  document.getElementById('roomRate').textContent=`GH₵${rate}/night`;
+  if(ciDate&&coDate){
+    const d1=new Date(`${ciDate}T${ciTime}`),d2=new Date(`${coDate}T${coTime}`);
+    const dh=(d2-d1)/3600000;
+    if(dh>0){
+      const nights=Math.ceil(dh/24);
+      document.getElementById('nightsCount').textContent=`${nights} night${nights>1?'s':''} (${Math.round(dh*10)/10} hrs)`;
+      document.getElementById('totalPrice').textContent=`GH₵${rate*nights}`;return;
+    }
+  }
+  document.getElementById('nightsCount').textContent='—';
+  document.getElementById('totalPrice').textContent='—';
+}
+
+function submitBooking(){
+  const name=document.getElementById('fullName').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const ciDate=document.getElementById('checkinDate').value;
+  const ciTime=document.getElementById('checkinTime').value||'14:00';
+  const coDate=document.getElementById('checkoutDate').value;
+  const coTime=document.getElementById('checkoutTime').value||'12:00';
+  const nokName=document.getElementById('nokName').value.trim();
+  const nokPhone=document.getElementById('nokPhone').value.trim();
+  const nokRel=document.getElementById('nokRelation').value;
+  const nokAddress=document.getElementById('nokAddress').value.trim();
+  const travelFrom=document.getElementById('travelFrom').value.trim();
+  if(!ciDate||!coDate){alert('Please select check-in and check-out dates.');return;}
+  const ciDT=new Date(`${ciDate}T${ciTime}`),coDT=new Date(`${coDate}T${coTime}`);
+  if(coDT<=ciDT){alert('Check-out must be after check-in.');return;}
+  if(!name||!phone){alert('Please enter your full name and phone number.');return;}
+  if(!nokName||!nokPhone){alert('Please fill in your Next of Kin details.');return;}
+  if(!travelFrom){alert('Please enter the city/town you are travelling from.');return;}
+  const rSel=document.getElementById('roomType');
+  const rate=parseInt(rSel.value);
+  const typeKey=rate===200?'standard':rate===300?'deluxe':'executive';
+  if(!rooms[typeKey].available||getRoomAvail(typeKey)===0){
+    document.getElementById('noAvailRoom').textContent=rooms[typeKey].name;
+    document.getElementById('noAvailOverlay').classList.add('show');return;
+  }
+  const diffH=(coDT-ciDT)/3600000;
+  const nights=Math.ceil(diffH/24);
+  const total=rate*(nights||1);
+  const ref='HEAM-'+Math.floor(1000+Math.random()*9000);
+  bookings.unshift({
+    ref,name,phone,email:document.getElementById('guestEmail').value,
+    nokName,nokPhone,nokRelation:nokRel||'Not specified',nokAddress,travelFrom,
+    roomType:typeKey,roomName:rSel.options[rSel.selectedIndex].text.split('—')[0].trim(),
+    rate,checkin:`${ciDate} ${ciTime}`,checkout:`${coDate} ${coTime}`,
+    nights,total,paymentMethod:'',amountPaid:'',status:'pending',
+    timestamp:new Date().toLocaleString()
+  });
+  currentBookingIdx=0;
+  rooms[typeKey].booked++;
+  renderRoomCards();
+  document.getElementById('bsec').style.display='none';
+  // Open payment selection
+  document.getElementById('paySelectOv').style.display='block';
+  window.scrollTo({top:0});
+}
+
+function closePaySelect(){
+  document.getElementById('paySelectOv').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ═══ MOMO PROMPT ═══
+function openMoMoPrompt(netKey){
+  currentNetKey = netKey;
+  pinBuffer = '';
+  const net = NETS[netKey];
+  const b = currentBookingIdx>=0 ? bookings[currentBookingIdx] : {};
+  const isMoMo = ['mtn','airteltigo','telecel'].includes(netKey);
+  const isBank  = netKey === 'gcb';
+  const isArrival = ['cash','visa'].includes(netKey);
+
+  // Style header
+  const hdr = document.getElementById('momoHeader');
+  const sheet = document.getElementById('momoSheet');
+  if(net.color){
+    hdr.style.background = net.color;
+    hdr.style.color = net.textColor;
+  } else {
+    hdr.style.background = 'linear-gradient(135deg,#1e293b,#334155)';
+    hdr.style.color = '#fff';
+  }
+  document.getElementById('momoIcon').textContent    = net.icon;
+  document.getElementById('momoNetName').textContent = net.name;
+  document.getElementById('momoNetSub').textContent  = `Send to: ${HOTEL_NUMBER} · Ebenezer Atta Marfo`;
+
+  // Show correct body step
+  document.getElementById('momoStepA').style.display = 'none';
+  document.getElementById('momoStepB').style.display = 'none';
+  document.getElementById('momoStepC').style.display = 'none';
+  document.getElementById('momoStepD').style.display = 'none';
+  updatePinDots();
+
+  if(isBank){
+    // GCB: show bank details then amount entry
+    document.getElementById('momoNetSub').textContent = 'Bank Transfer · GCB Ghana';
+    document.getElementById('momoRecipient').textContent = `Acc: 1234567890 · Ebenezer Atta Marfo Hotel`;
+    document.getElementById('momoStepA').style.display = 'block';
+    document.getElementById('momoAmount').value = b.total || '';
+    updateMomoTotal();
+    document.getElementById('momoProceedBtn').textContent = 'Confirm Transfer';
+    document.getElementById('momoProceedBtn').onclick = momoConfirmPay;
+  } else if(isMoMo){
+    document.getElementById('momoRecipient').textContent = `${HOTEL_NUMBER} · Ebenezer Atta Marfo`;
+    document.getElementById('momoStepA').style.display = 'block';
+    document.getElementById('momoAmount').value = b.total || '';
+    updateMomoTotal();
+    document.getElementById('momoProceedBtn').textContent = 'Proceed →  Enter PIN';
+    document.getElementById('momoProceedBtn').onclick = momoGoToPin;
+  } else {
+    // Cash / Visa
+    const infoIcon  = {cash:'💵',visa:'💳'};
+    const infoTitle = {cash:'Cash on Arrival',visa:'Visa / Card – POS Terminal'};
+    const infoDesc  = {
+      cash:`Bring the exact amount in Ghana Cedis (GH₵) to our front desk.<br>Our team is available <b>24 hours, 7 days</b> to receive you.`,
+      visa:`A POS terminal is available at our front desk.<br>We accept Visa, Mastercard & Ghana debit cards.<br>Payment processed when you arrive.`
+    };
+    document.getElementById('momoInfoIcon').textContent  = infoIcon[netKey];
+    document.getElementById('momoInfoTitle').textContent = infoTitle[netKey];
+    document.getElementById('momoInfoDesc').innerHTML    = infoDesc[netKey];
+    document.getElementById('momoInfoAmount').textContent = `GH₵${b.total||'—'}`;
+    document.getElementById('momoStepC').style.display = 'block';
+  }
+
+  const mp = document.getElementById('momoPrompt');
+  mp.style.display    = 'flex';
+  mp.style.alignItems = 'flex-end';
+  mp.style.animation  = 'slideUp .35s ease';
+}
+
+function closeMoMoPrompt(){
+  const mp = document.getElementById('momoPrompt');
+  mp.style.display = 'none';
+}
+
+function updateMomoTotal(){
+  const val = parseFloat(document.getElementById('momoAmount').value)||0;
+  document.getElementById('momoTotalDisplay').textContent = `GH₵ ${val.toFixed(2)}`;
+}
+
+function momoGoToPin(){
+  const amt = parseFloat(document.getElementById('momoAmount').value)||0;
+  if(!amt||amt<1){alert('Please enter the amount to pay.');return;}
+  document.getElementById('pinAmountShow').textContent = `GH₵ ${amt.toFixed(2)}`;
+  pinBuffer = '';
+  updatePinDots();
+  const btn = document.getElementById('pinConfirmBtn');
+  btn.disabled = true;
+  btn.style.opacity = '0.5';
+  document.getElementById('momoStepA').style.display='none';
+  document.getElementById('momoStepD').style.display='none';
+  document.getElementById('momoStepB').style.display='block';
+}
+
+function momoGoBack(){
+  document.getElementById('momoStepB').style.display='none';
+  document.getElementById('momoStepD').style.display='none';
+  document.getElementById('momoStepA').style.display='block';
+}
+
+// After full 4-digit PIN is entered → show USSD confirmation screen
+function momoGoToUssd(){
+  if(pinBuffer.length < 4){alert('Please enter your full 4-digit PIN.');return;}
+  const amt = parseFloat(document.getElementById('momoAmount').value)||0;
+  const net = NETS[currentNetKey];
+  document.getElementById('ussdNetLabel').textContent  = net ? net.name : 'Mobile Money';
+  document.getElementById('ussdAmount').textContent    = 'GH₵ ' + amt.toFixed(2);
+  document.getElementById('ussdRecipient').textContent = HOTEL_NUMBER;
+  document.getElementById('ussdName').textContent      = 'Ebenezer Atta Marfo Hotel';
+  document.getElementById('momoStepB').style.display='none';
+  document.getElementById('momoStepD').style.display='block';
+}
+
+// User presses 1 (confirm) or 2 (cancel) on USSD screen
+function ussdConfirm(choice){
+  if(choice === 2){
+    // Cancel — return to PIN entry
+    document.getElementById('momoStepD').style.display='none';
+    document.getElementById('momoStepB').style.display='block';
+    pinBuffer = '';
+    updatePinDots();
+    const btn = document.getElementById('pinConfirmBtn');
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+    return;
+  }
+  // choice === 1 — confirmed — trigger payment processing
+  momoConfirmPay();
+}
+
+function pinKey(k){
+  if(k==='del'){pinBuffer=pinBuffer.slice(0,-1);}
+  else if(k==='clr'){pinBuffer='';}
+  else if(pinBuffer.length<4){pinBuffer+=k;}
+  updatePinDots();
+  const btn=document.getElementById('pinConfirmBtn');
+  if(pinBuffer.length===4){btn.disabled=false;btn.style.opacity='1';}
+  else{btn.disabled=true;btn.style.opacity='0.5';}
+}
+
+function updatePinDots(){
+  for(let i=0;i<4;i++){
+    const dot=document.getElementById('pin'+i);
+    dot.classList.toggle('filled',i<pinBuffer.length);
+    dot.textContent=i<pinBuffer.length?'●':'·';
+  }
+}
+
+function momoConfirmPay(){
+  // Read amount from whichever step is visible
+  const amt = parseFloat(document.getElementById('momoAmount').value)||0;
+  if(!amt||amt<1){alert('Please enter the amount paid.');return;}
+  closeMoMoPrompt();
+  const proc = document.getElementById('momoProcessing');
+  const net  = NETS[currentNetKey];
+  document.getElementById('processingTitle').textContent = `Processing ${net.name}…`;
+  document.getElementById('processingMsg').textContent   = `Sending GH₵${amt.toFixed(2)} to ${HOTEL_NUMBER}`;
+  proc.style.display='flex';
+  setTimeout(()=>{
+    proc.style.display='none';
+    finalisePayment(amt, currentNetKey);
+  }, 2800);
+}
+
+function momoConfirmArival(){
+  const b = currentBookingIdx>=0 ? bookings[currentBookingIdx] : {};
+  closeMoMoPrompt();
+  finalisePayment(b.total||0, currentNetKey);
+}
+
+function finalisePayment(amt, netKey){
+  const net = NETS[netKey];
+  const idx = currentBookingIdx;
+  if(idx>=0 && bookings[idx]){
+    bookings[idx].status        = 'payment_sent';
+    bookings[idx].paymentMethod = netKey;
+    bookings[idx].amountPaid    = `GH₵${parseFloat(amt).toFixed(2)}`;
+    bookings[idx].paymentTimestamp = new Date().toLocaleString();
+  }
+  const b = idx>=0 ? bookings[idx] : {};
+  // Populate waiting screen
+  document.getElementById('payWaitSummary').innerHTML =
+    `<div style="display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13px;">` +
+    `<span style="opacity:.75">💳 Method:</span><b>${net.icon} ${net.name}</b>` +
+    `<span style="opacity:.75">💰 Amount:</span><b>GH₵${parseFloat(amt).toFixed(2)}</b>` +
+    `<span style="opacity:.75">📅 Check-in:</span><b>${b.checkin||'—'}</b>` +
+    `<span style="opacity:.75">🛏️ Room:</span><b>${b.roomName||'—'}</b>` +
+    `<span style="opacity:.75">🔑 Ref:</span><b>#${b.ref||'—'} (pending)</b>` +
+    `</div>`;
+  document.getElementById('paySelectOv').style.display='none';
+  document.getElementById('payWaitOv').style.display='block';
+  window.scrollTo({top:0});
+}
+
+function closePayWait(){
+  document.getElementById('payWaitOv').style.display='none';
+  showView('guestView');
+}
+
+// ═══ ADMIN DASHBOARD ═══
+function renderDashboard(){
+  if(!currentUser)return;
+
+  // Header
+  document.getElementById('dashName').textContent = currentUser.fullName;
+  document.getElementById('dashRole').textContent = roleLabel(currentUser.role);
+
+  // Avatar — photo or initial
+  const av = document.getElementById('dashAv');
+  if(currentUser.avatar){
+    av.innerHTML=`<img src="${currentUser.avatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+    av.textContent='';
+  } else {
+    av.textContent = currentUser.fullName.charAt(0).toUpperCase();
+    av.innerHTML='';
+    av.textContent = currentUser.fullName.charAt(0).toUpperCase();
+  }
+
+  // Role-based tab visibility
+  const isAdmin = ['admin','superadmin'].includes(currentUser.role);
+  const isSuperAdmin = currentUser.role==='superadmin';
+  const roomsBtn = document.getElementById('tabRoomsBtn');
+  const acctsBtn = document.getElementById('tabAccountsBtn');
+  const addBtn   = document.getElementById('addAcctBtn');
+  if(roomsBtn) roomsBtn.style.display = isAdmin ? '' : 'none';
+  if(acctsBtn) acctsBtn.style.display = isAdmin ? '' : 'none';
+  if(addBtn)   addBtn.style.display   = isSuperAdmin ? '' : 'none';
+
+  renderStats(); renderBookingList(); renderProfile();
+  if(isAdmin){ renderRoomMgmt(); renderAcctList(); }
+}
+
+function switchTab(tab,btn){
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tcnt').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  const el=document.getElementById('tab-'+tab);
+  if(el) el.classList.add('active');
+  if(tab==='profile') renderProfile();
+}
+
+// ═══ MY PROFILE ═══
+function renderProfile(){
+  if(!currentUser)return;
+  const u=currentUser;
+  const avatarHtml = u.avatar
+    ? `<img src="${u.avatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`
+    : `<span style="font-size:32px;line-height:80px;">${u.fullName.charAt(0).toUpperCase()}</span>`;
+
+  document.getElementById('profilePanel').innerHTML=`
+    <div style="background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.07);margin-bottom:14px;">
+
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="position:relative;display:inline-block;">
+          <div id="profAvatarDisp" onclick="document.getElementById('profAvatarInput').click()"
+            style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--green),#2a8a5f);display:flex;align-items:center;justify-content:center;cursor:pointer;border:3px solid #e5e7eb;overflow:hidden;margin:0 auto;color:#fff;font-family:'Playfair Display',serif;font-weight:900;">
+            ${avatarHtml}
+          </div>
+          <div onclick="document.getElementById('profAvatarInput').click()"
+            style="position:absolute;bottom:2px;right:2px;width:24px;height:24px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;border:2px solid #fff;">📷</div>
+        </div>
+        <input type="file" id="profAvatarInput" accept="image/*" style="display:none;" onchange="updateProfileAvatar(this)">
+        <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:900;margin-top:10px;">${u.fullName}</div>
+        <div style="font-size:11px;color:var(--muted);">@${u.username}</div>
+        <span style="display:inline-block;margin-top:5px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;background:${u.role==='superadmin'?'#fef9c3':u.role==='admin'?'#dcfce7':'#dbeafe'};color:${u.role==='superadmin'?'#854d0e':u.role==='admin'?'#166534':'#1e40af'};">
+          ${roleLabel(u.role)}
+        </span>
+        ${u.joinedAt?`<div style="font-size:10px;color:var(--muted);margin-top:4px;">Joined: ${u.joinedAt}</div>`:''}
+      </div>
+
+      <div style="border-top:1px solid var(--border);padding-top:16px;">
+        <div style="font-weight:700;font-size:13px;margin-bottom:14px;">✏️ Edit My Profile</div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+          <div><label style="font-size:10px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;">First Name</label>
+            <input class="ai" id="pfFirstName" value="${u.firstName||u.fullName.split(' ')[0]||''}" style="font-size:13px;"></div>
+          <div><label style="font-size:10px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;">Last Name</label>
+            <input class="ai" id="pfLastName" value="${u.lastName||u.fullName.split(' ').slice(1).join(' ')||''}" style="font-size:13px;"></div>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <label style="font-size:10px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;">Username</label>
+          <input class="ai" id="pfUsername" value="${u.username}" style="font-size:13px;" autocomplete="off">
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <label style="font-size:10px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;">Phone / WhatsApp</label>
+          <input class="ai" id="pfPhone" value="${u.phone||''}" placeholder="+233 XX XXX XXXX" style="font-size:13px;">
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <label style="font-size:10px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;">Email Address</label>
+          <input class="ai" id="pfEmail" value="${u.email||''}" type="email" style="font-size:13px;">
+        </div>
+
+        <div style="border-top:1px solid var(--border);padding-top:14px;margin-top:2px;">
+          <div style="font-weight:700;font-size:12px;margin-bottom:12px;color:var(--muted);">🔒 Change Password (leave blank to keep current)</div>
+          <div style="margin-bottom:10px;position:relative;">
+            <label style="font-size:10px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;">New Password</label>
+            <input class="ai" type="password" id="pfPass" placeholder="New password" style="font-size:13px;padding-right:40px;">
+            <span onclick="togglePassVis('pfPass',this)" style="position:absolute;right:12px;bottom:10px;cursor:pointer;font-size:15px;color:var(--muted);">👁️</span>
+          </div>
+          <div style="position:relative;">
+            <label style="font-size:10px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;">Confirm New Password</label>
+            <input class="ai" type="password" id="pfPass2" placeholder="Confirm new password" style="font-size:13px;padding-right:40px;">
+            <span onclick="togglePassVis('pfPass2',this)" style="position:absolute;right:12px;bottom:10px;cursor:pointer;font-size:15px;color:var(--muted);">👁️</span>
+          </div>
+        </div>
+
+        <div id="pfMsg" style="display:none;margin-top:10px;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;"></div>
+
+        <button onclick="saveProfile()"
+          style="width:100%;margin-top:14px;padding:13px;background:var(--green);color:#fff;border:none;border-radius:11px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:background .2s;">
+          💾 Save Changes
+        </button>
+      </div>
+    </div>`;
+}
+
+function updateProfileAvatar(input){
+  if(!input.files||!input.files[0])return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    currentUser.avatar=e.target.result;
+    // Update dashboard avatar immediately
+    const av=document.getElementById('dashAv');
+    av.innerHTML=`<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+    renderProfile();
+    renderAcctList();
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function saveProfile(){
+  const firstName = document.getElementById('pfFirstName').value.trim();
+  const lastName  = document.getElementById('pfLastName').value.trim();
+  const username  = document.getElementById('pfUsername').value.trim();
+  const phone     = document.getElementById('pfPhone').value.trim();
+  const email     = document.getElementById('pfEmail').value.trim();
+  const pass      = document.getElementById('pfPass').value;
+  const pass2     = document.getElementById('pfPass2').value;
+  const msgEl     = document.getElementById('pfMsg');
+
+  if(!firstName||!lastName){showPfMsg('❌ Name cannot be empty.','#fee2e2','#dc2626');return;}
+  if(!username){showPfMsg('❌ Username cannot be empty.','#fee2e2','#dc2626');return;}
+  if(!email){showPfMsg('❌ Email cannot be empty.','#fee2e2','#dc2626');return;}
+
+  // Check username not taken by someone else
+  const conflict=adminAccounts.find(a=>a.username===username&&a!==currentUser);
+  if(conflict){showPfMsg('❌ Username already taken.','#fee2e2','#dc2626');return;}
+
+  if(pass){
+    if(pass.length<6){showPfMsg('❌ New password must be at least 6 characters.','#fee2e2','#dc2626');return;}
+    if(pass!==pass2){showPfMsg('❌ Passwords do not match.','#fee2e2','#dc2626');return;}
+    currentUser.password=pass;
+  }
+
+  currentUser.firstName=firstName;
+  currentUser.lastName=lastName;
+  currentUser.fullName=firstName+' '+lastName;
+  currentUser.username=username;
+  currentUser.phone=phone;
+  currentUser.email=email;
+
+  document.getElementById('pfPass').value='';
+  document.getElementById('pfPass2').value='';
+  renderDashboard();
+  showPfMsg('✅ Profile updated successfully!','#dcfce7','#166534');
+}
+
+function showPfMsg(text,bg,color){
+  const el=document.getElementById('pfMsg');
+  if(!el)return;
+  el.textContent=text; el.style.background=bg; el.style.color=color; el.style.display='block';
+  setTimeout(()=>{el.style.display='none';},3500);
+}
+
+function renderStats(){
+  const tot=bookings.length;
+  const conf=bookings.filter(b=>b.status==='confirmed').length;
+  const rev=bookings.filter(b=>b.status!=='cancelled').reduce((s,b)=>s+b.total,0);
+  const occ=Object.values(rooms).reduce((s,r)=>s+r.booked,0);
+  document.getElementById('statsGrid').innerHTML=`
+    <div class="scard"><div class="snum">${tot}</div><div class="slbl">Total Bookings</div></div>
+    <div class="scard"><div class="snum">${conf}</div><div class="slbl">Confirmed</div></div>
+    <div class="scard"><div class="snum">GH₵${rev.toLocaleString()}</div><div class="slbl">Revenue</div></div>
+    <div class="scard"><div class="snum">${occ}</div><div class="slbl">Occupied Rooms</div></div>`;
+}
+
+function renderRoomMgmt(){
+  document.getElementById('roomMgmtList').innerHTML=Object.entries(rooms).map(([key,r])=>{
+    const avail=getRoomAvail(key);
+    return `<div class="rmcard">
+      <div class="rmhdr"><div class="rmname">${r.name}</div><div class="rmprice">GH₵${r.price}/night</div></div>
+      <div class="trow"><span class="tlbl">Available for Booking</span>
+        <label class="toggle"><input type="checkbox" ${r.available?'checked':''} onchange="toggleRoom('${key}',this.checked)"><span class="slider"></span></label>
+      </div>
+      <div class="crow">
+        <span class="clbl">Total:<b>${r.total}</b> · Booked:<b>${r.booked}</b> · Free:<b style="color:${avail===0?'var(--red)':avail<=1?'var(--orange)':'var(--green)'}">${avail}</b></span>
+        <div class="cctrl">
+          <button class="cbtn m" onclick="adjustRooms('${key}',-1)">−</button>
+          <span class="cnum">${r.total}</span>
+          <button class="cbtn p" onclick="adjustRooms('${key}',1)">+</button>
+        </div>
+      </div></div>`;
+  }).join('');
+}
+function toggleRoom(k,v){rooms[k].available=v;renderRoomCards();renderRoomMgmt();renderStats();}
+function adjustRooms(k,d){const r=rooms[k],n=r.total+d;if(n<r.booked){alert('Cannot set below booked count.');return;}if(n<1)return;r.total=n;renderRoomCards();renderRoomMgmt();renderStats();}
+
+function renderBookingList(){
+  const el=document.getElementById('bookingList');
+  if(!bookings.length){el.innerHTML='<div class="empty-box">📭 No bookings yet</div>';return;}
+  const statusLabel={pending:'⏳ PENDING',payment_sent:'💸 PAYMENT SENT',payment_received:'✅ PAYMENT VERIFIED',confirmed:'🎉 CONFIRMED',cancelled:'❌ CANCELLED'};
+  el.innerHTML=bookings.map((b,i)=>{
+    const sl=statusLabel[b.status]||b.status.toUpperCase();
+    const net=b.paymentMethod&&NETS[b.paymentMethod]?NETS[b.paymentMethod].icon+' '+NETS[b.paymentMethod].name:'—';
+    let acts='';
+    if(b.status==='pending'){
+      acts=`<div class="anotice blue">⏳ Waiting for guest to make payment.</div>
+      <div class="bacts"><button class="abtn2 ng" onclick="cancelBooking(${i})">❌ Cancel Booking</button></div>`;
+    } else if(b.status==='payment_sent'){
+      acts=`<div class="anotice blue">💸 Guest paid <b>${b.amountPaid||'—'}</b> via <b>${net}</b>. Please verify &amp; confirm.</div>
+      <div class="bacts">
+        <button class="abtn2 ok" onclick="updateBooking(${i},'payment_received')">✅ Payment Received</button>
+        <button class="abtn2 ng" onclick="cancelBooking(${i})">❌ Reject</button>
+      </div>`;
+    } else if(b.status==='payment_received'){
+      acts=`<div class="anotice grn">✅ Payment verified. Release reference code to guest.</div>
+      <div class="bacts">
+        <button class="abtn2 ok" onclick="updateBooking(${i},'confirmed')" style="background:var(--green);color:#fff;">🎉 Confirm &amp; Release Ref Code</button>
+        <button class="abtn2 ng" onclick="cancelBooking(${i})">❌ Cancel</button>
+      </div>`;
+    }
+    return `<div class="bitem ${b.status==='cancelled'?'cancelled':b.status==='payment_sent'?'payment_sent':b.status==='payment_received'?'payment_received':''}">
+      <div class="btop"><div class="bname">${b.name}</div><span class="bstatus ${b.status}">${sl}</span></div>
+      <div class="bdet">
+        🛏️ ${b.roomName} &nbsp;|&nbsp; ${b.checkin} → ${b.checkout} (${b.nights} night${b.nights>1?'s':''})<br>
+        💰 GH₵${b.total} &nbsp;|&nbsp; ${net}<br>
+        📞 ${b.phone}${b.email?' · ✉️ '+b.email:''}<br>
+        📍 From: <b>${b.travelFrom||'—'}</b><br>
+        🧑‍🤝‍🧑 NOK: <b>${b.nokName}</b> (${b.nokRelation}) · 📞 ${b.nokPhone}
+      </div>
+      <div class="bref">Ref: #${b.ref} · ${b.timestamp}</div>${acts}</div>`;
+  }).join('');
+}
+
+function updateBooking(i,status){
+  if(!currentUser){ showSecAlert('🔒 Not authorised.'); return; }
+  if(!secValidateBooking(bookings[i])){ showSecAlert('⚠️ Booking data looks invalid.'); return; }
+  const now=new Date().toLocaleString('en-GH',{dateStyle:'medium',timeStyle:'short'});
+  if(status==='payment_received') bookings[i].paymentReceivedAt=now;
+  if(status==='confirmed')        bookings[i].confirmedAt=now;
+  bookings[i].status=status;
+
+  if(status==='confirmed'){
+    // Show admin the "Send Ref Code" panel — do NOT show the guest overlay here
+    openSendRefPanel(i);
+  }
+  renderDashboard();renderRoomCards();
+}
+
+// ═══ SEND REF CODE PANEL (shown to admin after confirming) ═══
+function openSendRefPanel(i){
+  const b   = bookings[i];
+  const net = b.paymentMethod && NETS[b.paymentMethod] ? NETS[b.paymentMethod].icon+' '+NETS[b.paymentMethod].name : '—';
+  const nights = b.nights||1;
+
+  const msg =
+`🎉 *BOOKING CONFIRMED — Hon. Ebenezer Atta Marfo Hotel*
+
+Dear ${b.name},
+
+Your booking has been verified and confirmed! 🏨
+
+━━━━━━━━━━━━━━━━━━━━
+🔑 *REFERENCE CODE: ${b.ref}*
+━━━━━━━━━━━━━━━━━━━━
+
+📋 *BOOKING DETAILS*
+🛏️ Room: ${b.roomName}
+📅 Check-in:  ${b.checkin}
+📅 Check-out: ${b.checkout}
+🌙 Nights: ${nights}
+💰 Amount Paid: ${b.amountPaid||'GH₵'+b.total}
+💳 Payment: ${net}
+
+⚠️ *IMPORTANT — Please read before coming:*
+• Show this reference code at the front desk
+• Bring a valid National ID / Passport / Voters Card
+• We are open 24 hours — arrive any time
+• Do NOT share this code with anyone
+
+📞 Questions? Call or WhatsApp: ${HOTEL_NUMBER}
+
+_Hon. Ebenezer Atta Marfo Hotel_
+_Akyem Apedwa, Eastern Region, Ghana_ 🇬🇭`;
+
+  const waLink    = `https://wa.me/233${b.phone.replace(/^0/,'').replace(/\s/g,'')}?text=${encodeURIComponent(msg)}`;
+  const emailSubj = encodeURIComponent(`Booking Confirmed — Ref: ${b.ref} | Hon. Ebenezer Atta Marfo Hotel`);
+  const emailBody = encodeURIComponent(msg.replace(/\*/g,''));
+  const mailLink  = `mailto:${b.email||''}?subject=${emailSubj}&body=${emailBody}`;
+
+  // Build the panel HTML
+  const panel = document.getElementById('sendRefPanel');
+  panel.innerHTML = `
+    <div style="max-width:440px;margin:0 auto;padding:28px 18px 60px;color:#fff;text-align:center;">
+      <div style="font-size:52px;margin-bottom:10px;">📤</div>
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:900;margin-bottom:6px;">Send Reference Code</div>
+      <div style="font-size:13px;opacity:.85;margin-bottom:20px;line-height:1.6;">
+        Payment confirmed for <b>${b.name}</b>.<br>Now send the reference code to the guest.
+      </div>
+
+      
+      <div style="background:#fff;border-radius:16px;padding:18px 20px;margin-bottom:20px;box-shadow:0 8px 30px rgba(0,0,0,.3);">
+        <div style="font-size:10px;font-weight:800;color:#6b7280;letter-spacing:2px;margin-bottom:6px;">REFERENCE CODE</div>
+        <div style="font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:#1a6b4a;letter-spacing:5px;">${b.ref}</div>
+        <div style="height:2px;background:linear-gradient(90deg,#1a6b4a,#2a8a5f);border-radius:2px;margin:10px 0 6px;"></div>
+        <div style="font-size:11px;color:#6b7280;">${b.name} · ${b.roomName} · ${nights} night${nights>1?'s':''}</div>
+      </div>
+
+      
+      <div style="background:rgba(0,0,0,.25);border-radius:13px;padding:14px 16px;margin-bottom:18px;text-align:left;font-size:11px;line-height:1.8;white-space:pre-wrap;word-break:break-word;max-height:180px;overflow-y:auto;">${msg.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+
+      
+      <div style="display:grid;gap:10px;margin-bottom:16px;">
+
+        
+        <a href="${waLink}" target="_blank"
+          style="display:flex;align-items:center;gap:12px;background:#25D366;color:#fff;padding:14px 18px;border-radius:14px;text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.2);">
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="white"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.51L4 29l7.697-1.809A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.95 9.95 0 01-5.065-1.375l-.363-.215-4.57 1.073 1.11-4.447-.237-.376A9.951 9.951 0 016 15c0-5.523 4.477-10 10-10zm-3.172 5.5c-.2 0-.524.075-.8.375C11.75 11.175 11 12.05 11 13.838c0 1.787 1.056 3.512 1.206 3.762.15.25 2.069 3.237 5.088 4.413 2.525.987 3.038.79 3.588.74.55-.05 1.775-.725 2.025-1.425.25-.7.25-1.3.175-1.425-.075-.125-.275-.2-.575-.35-.3-.15-1.775-.875-2.05-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-.3-.15-1.265-.466-2.41-1.485-.89-.793-1.49-1.772-1.665-2.072-.175-.3-.018-.462.132-.612.134-.134.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.663-1.637-.925-2.237-.238-.575-.488-.5-.675-.51-.175-.008-.375-.01-.575-.01z"/></svg>
+          <div style="text-align:left;">
+            <div>Send via WhatsApp</div>
+            <div style="font-size:11px;font-weight:400;opacity:.85;">To: ${b.phone}</div>
+          </div>
+          <div style="margin-left:auto;font-size:18px;">→</div>
+        </a>
+
+        
+        ${b.email ? `
+        <a href="${mailLink}"
+          style="display:flex;align-items:center;gap:12px;background:#1e40af;color:#fff;padding:14px 18px;border-radius:14px;text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.2);">
+          <span style="font-size:22px;">✉️</span>
+          <div style="text-align:left;">
+            <div>Send via Email</div>
+            <div style="font-size:11px;font-weight:400;opacity:.85;">To: ${b.email}</div>
+          </div>
+          <div style="margin-left:auto;font-size:18px;">→</div>
+        </a>` : `
+        <div style="background:rgba(255,255,255,.1);border:1px dashed rgba(255,255,255,.3);border-radius:14px;padding:14px 18px;font-size:12px;opacity:.7;text-align:left;">
+          ✉️ No email address provided — send via WhatsApp only
+        </div>`}
+
+        
+        <button onclick="copyRef('${b.ref}')"
+          style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.15);color:#fff;padding:14px 18px;border-radius:14px;border:2px solid rgba(255,255,255,.3);font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;cursor:pointer;width:100%;">
+          <span style="font-size:22px;" id="copyIcon">📋</span>
+          <span id="copyLabel">Copy Reference Code</span>
+          <div style="margin-left:auto;font-size:18px;">→</div>
+        </button>
+      </div>
+
+      <div style="background:rgba(255,200,0,.15);border:1px solid rgba(255,200,0,.3);border-radius:11px;padding:11px 14px;font-size:12px;line-height:1.7;margin-bottom:20px;text-align:left;">
+        ⚠️ <b>Important:</b> Send the reference code to the guest before they travel. The guest must show this code when checking in at the hotel.
+      </div>
+
+      <button onclick="closeSendRefPanel()"
+        style="background:rgba(255,255,255,.18);color:#fff;border:2px solid rgba(255,255,255,.3);border-radius:12px;padding:12px 28px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;cursor:pointer;">
+        ✅ Done — Back to Dashboard
+      </button>
+    </div>`;
+
+  panel.style.display = 'block';
+  window.scrollTo({top:0});
+}
+
+function copyRef(code){
+  navigator.clipboard.writeText(code).then(()=>{
+    document.getElementById('copyIcon').textContent  = '✅';
+    document.getElementById('copyLabel').textContent = 'Copied!';
+    setTimeout(()=>{
+      document.getElementById('copyIcon').textContent  = '📋';
+      document.getElementById('copyLabel').textContent = 'Copy Reference Code';
+    }, 2000);
+  }).catch(()=>{ alert('Ref code: '+code); });
+}
+
+function closeSendRefPanel(){
+  document.getElementById('sendRefPanel').style.display='none';
+  renderDashboard();
+  _showViewDirect('adminView');
+}
+
+function cancelBooking(i){
+  if(!currentUser){ showSecAlert('🔒 Not authorised.'); return; }
+  if(!secValidateBooking(bookings[i])){ showSecAlert('⚠️ Booking data looks invalid.'); return; }
+  if(!confirm('Cancel this booking?'))return;
+  if(bookings[i].status!=='cancelled') rooms[bookings[i].roomType].booked=Math.max(0,rooms[bookings[i].roomType].booked-1);
+  bookings[i].status='cancelled';
+  renderDashboard();renderRoomCards();
+}
+
+function closeRefOverlay(){
+  document.getElementById('refOverlay').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ═══ ACCOUNTS ═══
+function roleLabel(r){return r==='superadmin'?'Super Admin':r==='admin'?'Administrator':'Staff';}
+function roleColor(r){return r==='superadmin'?'#b45309':r==='admin'?'var(--green)':'#1d4ed8';}
+
+function renderAcctList(){
+  document.getElementById('acctList').innerHTML=adminAccounts.map((a,i)=>`
+    <div class="accard">
+      <div class="acav" style="background:${roleColor(a.role)}">${a.fullName.charAt(0).toUpperCase()}</div>
+      <div class="acinfo">
+        <div class="acname">${a.fullName}${currentUser&&a.username===currentUser.username?' <span style="font-size:9px;background:#dcfce7;color:#166534;padding:1px 6px;border-radius:10px;font-weight:700;">YOU</span>':''}</div>
+        <div class="acuser">@${a.username}${a.email?' · '+a.email:''}</div>
+        <span class="acrbdg ${a.role}">${roleLabel(a.role)}</span>
+      </div>
+      <div class="acacts">
+        <button class="acbtn edit" onclick="openEditAcct(${i})">✏️</button>
+        ${!a.isDefault&&currentUser&&currentUser.role==='superadmin'&&a.username!==currentUser.username?`<button class="acbtn del" onclick="deleteAcct(${i})">🗑️</button>`:''}
+      </div>
+    </div>`).join('');
+}
+
+function openAddAcct(){
+  editAcctIdx=null;
+  document.getElementById('mTitle').textContent='➕ Add New Account';
+  document.getElementById('mPHint').style.display='none';
+  ['mFName','mUname','mEmail','mPass'].forEach(id=>document.getElementById(id).value='');
+  document.querySelectorAll('.rchip').forEach(c=>c.classList.remove('sel'));
+  document.querySelector('.rchip[data-role="admin"]').classList.add('sel');
+  mRole='admin';
+  document.getElementById('mErr').style.display='none';
+  document.getElementById('acctModal').classList.add('show');
+}
+function openEditAcct(i){
+  editAcctIdx=i;const a=adminAccounts[i];
+  document.getElementById('mTitle').textContent='✏️ Edit Account';
+  document.getElementById('mPHint').style.display='inline';
+  document.getElementById('mFName').value=a.fullName;
+  document.getElementById('mUname').value=a.username;
+  document.getElementById('mEmail').value=a.email||'';
+  document.getElementById('mPass').value='';
+  document.querySelectorAll('.rchip').forEach(c=>c.classList.toggle('sel',c.dataset.role===a.role));
+  mRole=a.role;
+  document.getElementById('mErr').style.display='none';
+  document.getElementById('acctModal').classList.add('show');
+}
+function selMRole(el,r){document.querySelectorAll('.rchip').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');mRole=r;}
+function saveAcct(){
+  const name=document.getElementById('mFName').value.trim();
+  const uname=document.getElementById('mUname').value.trim();
+  const email=document.getElementById('mEmail').value.trim();
+  const pass=document.getElementById('mPass').value;
+  const errEl=document.getElementById('mErr');
+  errEl.style.display='none';
+  if(!name||!uname){errEl.textContent='❌ Name and username are required.';errEl.style.display='block';return;}
+  if(adminAccounts.find((a,i)=>a.username===uname&&i!==editAcctIdx)){errEl.textContent='❌ Username already in use.';errEl.style.display='block';return;}
+  if(editAcctIdx!==null){
+    const a=adminAccounts[editAcctIdx];
+    a.fullName=name;a.username=uname;a.email=email;a.role=mRole;
+    if(pass){if(pass.length<6){errEl.textContent='❌ Password min 6 chars.';errEl.style.display='block';return;}a.password=pass;}
+  } else {
+    if(!pass||pass.length<6){errEl.textContent='❌ Password must be at least 6 characters.';errEl.style.display='block';return;}
+    adminAccounts.push({fullName:name,username:uname,email,password:pass,role:mRole,isDefault:false});
+  }
+  closeModal();renderAcctList();
+}
+function deleteAcct(i){
+  if(adminAccounts[i].isDefault){alert('Cannot delete the default Super Admin account.');return;}
+  if(currentUser&&adminAccounts[i].username===currentUser.username){alert('You cannot delete your own account.');return;}
+  if(!confirm(`Delete account "@${adminAccounts[i].username}"?`))return;
+  adminAccounts.splice(i,1);renderAcctList();
+}
+function closeModal(){document.getElementById('acctModal').classList.remove('show');}
+
+// ═══ INIT ═══
+const today=new Date().toISOString().split('T')[0];
+document.getElementById('checkinDate').min=today;
+document.getElementById('checkoutDate').min=today;
+document.getElementById('checkinDate').addEventListener('change',function(){document.getElementById('checkoutDate').min=this.value;});
+renderRoomCards();
+
+// ═══ AI CHAT ═══
+const HOTEL_SYSTEM=`You are the AI concierge for Hon. Ebenezer Atta Marfo Hotel. ONLY answer questions about this hotel.
+Hotel: Hon. Ebenezer Atta Marfo Hotel · Akyem Apedwa, Eastern Region, Ghana
+Phone/WhatsApp: ${HOTEL_NUMBER}
+Open: 24 hours, 7 days
+Rooms: Standard GH₵200/night (Fan,TV,WiFi,Bathroom) | Deluxe GH₵300/night (A/C,TV,En-suite,WiFi) | Executive GH₵400/night (A/C,Smart TV,Bathtub,Kitchen,WiFi)
+Payment: MTN MoMo *170#, AirtelTigo *110#, Telecel *700#, GCB Bank, Cash on Arrival, Visa/Card POS — all to ${HOTEL_NUMBER}
+Check-in standard: 2PM · Check-out: 12PM · Open 24 hours so any time works
+Next of Kin required for all bookings (emergency contact)
+Location: Akyem Apedwa along Accra–Kumasi highway N6 (~2hrs from Accra)
+Be warm, friendly, use emojis. Keep answers concise. For urgent issues direct to WhatsApp ${HOTEL_NUMBER}.`;
+
+let chatHistory=[];
+function toggleChat(){
+  const w=document.getElementById('chatWindow');
+  const open=w.style.display==='flex';
+  w.style.display=open?'none':'flex';
+  w.style.flexDirection='column';
+  if(!open)setTimeout(()=>document.getElementById('chatInput').focus(),200);
+}
+function askQuick(q){document.getElementById('chatInput').value=q;document.getElementById('quickBtns').style.display='none';sendChat();}
+function appendMsg(role,text){
+  const box=document.getElementById('chatMessages');
+  const isBot=role==='bot';
+  const wrap=document.createElement('div');
+  wrap.style.cssText='display:flex;gap:8px;align-items:flex-start;'+(isBot?'':'flex-direction:row-reverse;');
+  const av=document.createElement('div');
+  av.style.cssText='width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;'+(isBot?'background:linear-gradient(135deg,#1a6b4a,#2a8a5f);':'background:#e8f5e9;');
+  av.textContent=isBot?'🤖':'👤';
+  const bubble=document.createElement('div');
+  bubble.style.cssText='border-radius:'+(isBot?'0 12px 12px 12px':'12px 0 12px 12px')+';padding:10px 12px;font-size:12px;line-height:1.55;max-width:215px;'+(isBot?'background:#fff;color:#1a1a1a;box-shadow:0 1px 4px rgba(0,0,0,.08);':'background:linear-gradient(135deg,#1a6b4a,#2a8a5f);color:#fff;');
+  bubble.innerHTML=text;
+  wrap.appendChild(av);wrap.appendChild(bubble);
+  box.appendChild(wrap);box.scrollTop=box.scrollHeight;
+}
+function showTyping(){
+  const box=document.getElementById('chatMessages');
+  const el=document.createElement('div');
+  el.id='typingIndicator';el.style.cssText='display:flex;gap:8px;align-items:flex-start;';
+  el.innerHTML='<div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#1a6b4a,#2a8a5f);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">🤖</div><div style="background:#fff;border-radius:0 12px 12px 12px;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,.08);"><div class="chat-typing"><span></span><span></span><span></span></div></div>';
+  box.appendChild(el);box.scrollTop=box.scrollHeight;
+}
+function removeTyping(){const el=document.getElementById('typingIndicator');if(el)el.remove();}
+async function sendChat(){
+  const input=document.getElementById('chatInput');
+  const q=input.value.trim();if(!q)return;
+  input.value='';document.getElementById('quickBtns').style.display='none';
+  appendMsg('user',q);showTyping();
+  chatHistory.push({role:'user',content:q});
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,system:HOTEL_SYSTEM,messages:chatHistory.slice(-10)})});
+    const data=await res.json();
+    const reply=data.content&&data.content[0]?data.content[0].text:`Sorry, I could not respond. Please call ${HOTEL_NUMBER}.`;
+    removeTyping();appendMsg('bot',reply.replace(/\n/g,'<br>'));
+    chatHistory.push({role:'assistant',content:reply});
+  }catch(e){
+    removeTyping();appendMsg('bot',`📶 Connection issue. Call or WhatsApp us: <b>${HOTEL_NUMBER}</b>`);
+  }
+}
+</script>
+</body>
+</html>
